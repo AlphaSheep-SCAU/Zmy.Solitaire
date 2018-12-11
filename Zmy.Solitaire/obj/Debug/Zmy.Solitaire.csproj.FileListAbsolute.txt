@@ -11,3 +11,12 @@ I:\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Salitrire.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe.config
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.exe
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.pdb
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.pdb
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe.CodeAnalysisLog.xml
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe.lastcodeanalysissucceeded
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csprojResolveAssemblyReference.cache
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.customComponent.Card.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Salitrire.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Properties.Resources.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csproj.GenerateResource.Cache
