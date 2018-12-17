@@ -69,7 +69,7 @@ namespace Zmy.Solitaire.customComponent
         public Suit CardSuit { get; set; }
         public Number CardNumber { get; set; }
         public int PanelTopHeight { get; set; }
-        public object CurContainer { get; set; }
+        public Stack<Card> CurContainer { get; set; }
 
 
         public Card()
@@ -170,16 +170,7 @@ namespace Zmy.Solitaire.customComponent
         {
             //取消移动
             isMoving = false;
-            //控制纸牌的显示
-            if(!IsShow && CurContainer is Stack<Card> && (CurContainer as Stack<Card>).Peek() == this)
-            {
-                IsShow = true;
-            }
-            else if(!IsShow && CurContainer is Queue<Card> && (CurContainer as Queue<Card>).Peek() == this)
-            {
-                IsShow = true;
-                (CurContainer as Queue<Card>).Dequeue();
-            }
+
         }
 
         private void Card_MouseMove(object sender, MouseEventArgs e)
@@ -227,7 +218,12 @@ namespace Zmy.Solitaire.customComponent
 
         private void Card_MouseClick(object sender, MouseEventArgs e)
         {
-
+            //控制纸牌的显示
+            if (!IsShow && CurContainer is Stack<Card> && (CurContainer as Stack<Card>).Peek() == this)
+            {
+                IsShow = true;
+                CurContainer.Pop();
+            }
         }
     }
 }

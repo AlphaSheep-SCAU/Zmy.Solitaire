@@ -53,7 +53,6 @@
             this.panelRandomCard.Name = "panelRandomCard";
             this.panelRandomCard.Size = new System.Drawing.Size(130, 180);
             this.panelRandomCard.TabIndex = 0;
-            this.panelRandomCard.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelRandomCard_MouseClick);
             // 
             // panelOpenRandomCard
             // 

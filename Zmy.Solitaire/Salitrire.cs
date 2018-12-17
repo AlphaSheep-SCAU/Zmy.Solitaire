@@ -16,9 +16,9 @@ namespace Zmy.Solitaire
         public Card[] listCard;
         private Panel[] panelMiddleCard;
         private Stack<Card>[] stackMiddleCard;
-        private Queue<Card> queueRandomCard;
+        private Stack<Card> stackRandomCard;
         private Stack<Card> stackRandomShowCard;
-
+        private WatchForm wf;
         public Salitrire()
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace Zmy.Solitaire
             {
                 stackMiddleCard[i] = new Stack<Card>();
             }
-            queueRandomCard = new Queue<Card>();
+            stackRandomCard = new Stack<Card>();
             stackRandomShowCard = new Stack<Card>();
 
             LoadMiddleCard();
@@ -39,7 +39,7 @@ namespace Zmy.Solitaire
 
             Shuffle();
 
-            InitCardLocation();
+            Card resetCard = InitCardLocation();
 
             HideOrShowAllPanel(this, true);
 
@@ -47,11 +47,14 @@ namespace Zmy.Solitaire
             {
                 Controls.Add(listCard[i]);
             }
-
             for(int i = 28; i < 52; i++)
             {
                 Controls.Add(listCard[i]);
             }
+            Controls.Add(resetCard);
+
+            wf = new WatchForm(stackMiddleCard,stackRandomCard,stackRandomShowCard);
+            wf.Show();
         }
 
         /// <summary>
@@ -88,7 +91,7 @@ namespace Zmy.Solitaire
         /// <summary>
         /// 发牌
         /// </summary>
-        private void InitCardLocation()
+        private Card InitCardLocation()
         {
             int i = 0;
             for(int num = 1; num <= 7; num++)
@@ -98,18 +101,28 @@ namespace Zmy.Solitaire
                     stackMiddleCard[num - 1].Push(listCard[i]);
                     listCard[i].Location = LocatePoint(panelMiddleCard[num - 1], stackMiddleCard[num - 1]);
                     listCard[i].CurContainer = stackMiddleCard[num - 1];
-                    if (count == num)
+                    //if (count == num)
                         listCard[i].IsShow = true;
                     i++;
                 }
             }
-            for (int j = 51; j >= 28; j--)
+            //放入一张随机牌堆重置的牌
+            Card resetCard = new Card(Suit.Club,Number.King);
+            resetCard.Location = LocatePoint(panelRandomCard);
+            resetCard.BackgroundImage = Properties.Resources.club_24px;
+            resetCard.CurContainer = stackRandomCard;
+            stackRandomCard.Push(resetCard);
+            resetCard.MouseClick += Mouse_Click_Card;
+            resetCard.MouseClick += RandomCard_MouseClick;
+            //stackRandomCard.Push(resetCard);
+            for (int j = 51 ; j >= i; j--)
             {
-                queueRandomCard.Enqueue(listCard[i++]);
+                stackRandomCard.Push(listCard[j]);
                 listCard[j].Location = LocatePoint(panelRandomCard);
-                listCard[j].CurContainer = queueRandomCard;
+                listCard[j].CurContainer = stackRandomCard;
                 listCard[j].MouseClick += Mouse_Click_Card;
             }
+            return resetCard;
         }
 
 
@@ -184,18 +197,33 @@ namespace Zmy.Solitaire
             stackRandomShowCard.Push(s);
             s.Location = LocatePoint(panelOpenRandomCard);
             s.BringToFront();
+            WatchFormLoad();
         }
 
-        private void panelRandomCard_MouseClick(object sender, MouseEventArgs e)
+        private void RandomCard_MouseClick(object sender, MouseEventArgs e)
         {
-            for(int i = 0; i < stackRandomShowCard.Count; i++)
+            while(stackRandomShowCard.Count > 0)
             {
                 Card card = stackRandomShowCard.Pop();
-                queueRandomCard.Enqueue(card);
+                stackRandomCard.Push(card);
+                card.CurContainer = stackRandomCard;
                 card.Location = LocatePoint(panelRandomCard);
                 card.IsShow = false;
                 card.BringToFront();
             }
+            WatchFormLoad();
+        }
+
+        private void WatchFormLoad()
+        {
+            wf.stackMiddleCard = new Stack<Card>[7];
+            for(int i = 0; i < 7; i++)
+            {
+                wf.stackMiddleCard[i] = new Stack<Card>(stackMiddleCard[i].ToArray());
+            }
+            wf.stackRandomCard = new Stack<Card>(stackRandomCard.ToArray());
+            wf.stackRandomShowCard = new Stack<Card>(stackRandomShowCard.ToArray());
+            wf.LoadForm();
         }
     }
 }
