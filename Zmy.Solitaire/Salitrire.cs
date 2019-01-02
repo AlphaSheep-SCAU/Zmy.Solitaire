@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -68,6 +69,7 @@ namespace Zmy.Solitaire
                 foreach(Number n in Enum.GetValues(typeof(Number)))
                 {
                     Card tCard = new Card(s, n);
+                    tCard.MouseUp += Mouse_Up_Card;
                     listCard[i++] = tCard;
                 }
             }
@@ -101,7 +103,7 @@ namespace Zmy.Solitaire
                     stackMiddleCard[num - 1].Push(listCard[i]);
                     listCard[i].Location = LocatePoint(panelMiddleCard[num - 1], stackMiddleCard[num - 1]);
                     listCard[i].CurContainer = stackMiddleCard[num - 1];
-                    //if (count == num)
+                    if (count == num)
                         listCard[i].IsShow = true;
                     i++;
                 }
@@ -112,7 +114,7 @@ namespace Zmy.Solitaire
             resetCard.BackgroundImage = Properties.Resources.club_24px;
             resetCard.CurContainer = stackRandomCard;
             stackRandomCard.Push(resetCard);
-            resetCard.MouseClick += Mouse_Click_Card;
+            //resetCard.MouseClick += Mouse_Click_Card;
             resetCard.MouseClick += RandomCard_MouseClick;
             //stackRandomCard.Push(resetCard);
             for (int j = 51 ; j >= i; j--)
@@ -120,7 +122,7 @@ namespace Zmy.Solitaire
                 stackRandomCard.Push(listCard[j]);
                 listCard[j].Location = LocatePoint(panelRandomCard);
                 listCard[j].CurContainer = stackRandomCard;
-                listCard[j].MouseClick += Mouse_Click_Card;
+                //listCard[j].MouseClick += Mouse_Click_Card;
             }
             return resetCard;
         }
@@ -190,30 +192,88 @@ namespace Zmy.Solitaire
             }
         }
 
+        /// <summary>
+        /// 随机牌堆展示牌
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Mouse_Click_Card(object sender, MouseEventArgs e)
         {
-            Card s = sender as Card;
-            s.CurContainer = stackRandomShowCard;
-            stackRandomShowCard.Push(s);
-            s.Location = LocatePoint(panelOpenRandomCard);
-            s.BringToFront();
-            WatchFormLoad();
+            //if(e.Button == MouseButtons.Left)
+            //{
+            //    Card s = sender as Card;
+            //    s.CurContainer = stackRandomShowCard;
+            //    stackRandomShowCard.Push(s);
+            //    s.Location = LocatePoint(panelOpenRandomCard);
+            //    s.BringToFront();
+            //    WatchFormLoad();
+            //}
+
         }
 
+        private void Mouse_Up_Card(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left && (sender as Card).CurContainer == stackRandomCard)
+            {
+                Card s = sender as Card;
+                s.CurContainer = stackRandomShowCard;
+                stackRandomShowCard.Push(s);
+                s.Location = LocatePoint(panelOpenRandomCard);
+                s.BringToFront();
+                WatchFormLoad();
+            }
+            Card c = sender as Card;
+            for (int i = 0; i < panelMiddleCard.Length; i++)
+            {
+                if(c.CurContainer == stackMiddleCard[i])
+                {
+                    continue;
+                }
+                bool isIntersected = SalitrireUtil.IsIntersected(c, panelMiddleCard[i]);
+                if (isIntersected)
+                {
+                    isIntersected = SalitrireUtil.IsIntersected(c, stackMiddleCard[i].Peek());
+                    if (isIntersected)
+                    {
+                        c.CurContainer.Pop();
+                        stackMiddleCard[i].Push(c);
+                        c.Location = LocatePoint(panelMiddleCard[i], stackMiddleCard[i]);
+                        c.CurContainer = stackMiddleCard[i];
+                        break;
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// 随机牌堆重新堆放
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RandomCard_MouseClick(object sender, MouseEventArgs e)
         {
-            while(stackRandomShowCard.Count > 0)
+            if(e.Button == MouseButtons.Left)
             {
-                Card card = stackRandomShowCard.Pop();
-                stackRandomCard.Push(card);
-                card.CurContainer = stackRandomCard;
-                card.Location = LocatePoint(panelRandomCard);
-                card.IsShow = false;
-                card.BringToFront();
+                while (stackRandomShowCard.Count > 0)
+                {
+                    Card card = stackRandomShowCard.Pop();
+                    stackRandomCard.Push(card);
+                    card.CurContainer = stackRandomCard;
+                    card.Location = LocatePoint(panelRandomCard);
+                    card.IsShow = false;
+                    card.BringToFront();
+                }
+                WatchFormLoad();
             }
-            WatchFormLoad();
         }
 
+        /// <summary>
+        /// 更新watchform
+        /// </summary>
         private void WatchFormLoad()
         {
             wf.stackMiddleCard = new Stack<Card>[7];

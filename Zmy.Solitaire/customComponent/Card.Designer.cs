@@ -87,7 +87,6 @@
             this.panelButtom.Name = "panelButtom";
             this.panelButtom.Size = new System.Drawing.Size(115, 120);
             this.panelButtom.TabIndex = 5;
-            this.panelButtom.Paint += new System.Windows.Forms.PaintEventHandler(this.panelButtom_Paint);
             // 
             // pictureBoxRight
             // 
@@ -109,7 +108,6 @@
             this.Controls.Add(this.panelTop);
             this.Name = "Card";
             this.Size = new System.Drawing.Size(115, 165);
-            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Card_MouseClick);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Card_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Card_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Card_MouseUp);

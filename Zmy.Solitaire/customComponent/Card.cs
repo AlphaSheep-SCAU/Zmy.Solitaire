@@ -76,6 +76,7 @@ namespace Zmy.Solitaire.customComponent
         {
             InitializeComponent();
             isMoving = false;
+            AllowDrop = true;
         }
 
         /// <summary>
@@ -86,6 +87,7 @@ namespace Zmy.Solitaire.customComponent
         public Card(Suit cardSuit,Number cardNumber)
         {
             InitializeComponent();
+            AllowDrop = true;
 
             CardSuit = cardSuit;
             SetSuitImage(CardSuit);
@@ -159,18 +161,30 @@ namespace Zmy.Solitaire.customComponent
 
         private void Card_MouseDown(object sender, MouseEventArgs e)
         {
-            Point t = new Point(e.X, e.Y);
-            t = PointToScreen(t);
-            curX = t.X;
-            curY = t.Y;
-            isMoving = true;
+            if(e.Button == MouseButtons.Left && isShow)
+            {
+                this.BringToFront();
+                Point t = new Point(e.X, e.Y);
+                t = PointToScreen(t);
+                curX = t.X;
+                curY = t.Y;
+                isMoving = true;
+            }
+
         }
 
         private void Card_MouseUp(object sender, MouseEventArgs e)
         {
             //取消移动
             isMoving = false;
-
+            //控制纸牌的显示
+            if (e.Button == MouseButtons.Left
+                && !IsShow && CurContainer is Stack<Card>
+                && (CurContainer as Stack<Card>).Peek() == this)
+            {
+                IsShow = true;
+                CurContainer.Pop();
+            }
         }
 
         private void Card_MouseMove(object sender, MouseEventArgs e)
@@ -211,19 +225,5 @@ namespace Zmy.Solitaire.customComponent
             }
         }
 
-        private void panelButtom_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void Card_MouseClick(object sender, MouseEventArgs e)
-        {
-            //控制纸牌的显示
-            if (!IsShow && CurContainer is Stack<Card> && (CurContainer as Stack<Card>).Peek() == this)
-            {
-                IsShow = true;
-                CurContainer.Pop();
-            }
-        }
     }
 }

@@ -63,6 +63,7 @@
             // 
             // panelFinishedCardClub
             // 
+            this.panelFinishedCardClub.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFinishedCardClub.Location = new System.Drawing.Point(832, 15);
             this.panelFinishedCardClub.Name = "panelFinishedCardClub";
             this.panelFinishedCardClub.Size = new System.Drawing.Size(130, 180);
@@ -70,6 +71,7 @@
             // 
             // panelFinishedCardDiamond
             // 
+            this.panelFinishedCardDiamond.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFinishedCardDiamond.Location = new System.Drawing.Point(995, 15);
             this.panelFinishedCardDiamond.Name = "panelFinishedCardDiamond";
             this.panelFinishedCardDiamond.Size = new System.Drawing.Size(130, 180);
@@ -77,6 +79,7 @@
             // 
             // panelFinishedCardHeart
             // 
+            this.panelFinishedCardHeart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFinishedCardHeart.Location = new System.Drawing.Point(663, 15);
             this.panelFinishedCardHeart.Name = "panelFinishedCardHeart";
             this.panelFinishedCardHeart.Size = new System.Drawing.Size(130, 180);
@@ -84,6 +87,7 @@
             // 
             // panelFinishedCardSpade
             // 
+            this.panelFinishedCardSpade.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelFinishedCardSpade.Location = new System.Drawing.Point(497, 15);
             this.panelFinishedCardSpade.Name = "panelFinishedCardSpade";
             this.panelFinishedCardSpade.Size = new System.Drawing.Size(130, 180);
@@ -150,11 +154,11 @@
             // 
             // panelMiddle
             // 
+            this.panelMiddle.Controls.Add(this.panelOpenRandomCard);
             this.panelMiddle.Controls.Add(this.panelRandomCard);
             this.panelMiddle.Controls.Add(this.panelMiddleCard7);
             this.panelMiddle.Controls.Add(this.panelFinishedCardHeart);
             this.panelMiddle.Controls.Add(this.panelFinishedCardClub);
-            this.panelMiddle.Controls.Add(this.panelOpenRandomCard);
             this.panelMiddle.Controls.Add(this.panelMiddleCard6);
             this.panelMiddle.Controls.Add(this.panelFinishedCardSpade);
             this.panelMiddle.Controls.Add(this.panelMiddleCard5);

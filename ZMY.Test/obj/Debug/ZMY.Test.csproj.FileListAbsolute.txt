@@ -1,0 +1,6 @@
+I:\复习\7大四上学期\Zmy.Solitaire\ZMY.Test\bin\Debug\ZMY.Test.exe.config
+I:\复习\7大四上学期\Zmy.Solitaire\ZMY.Test\bin\Debug\ZMY.Test.exe
+I:\复习\7大四上学期\Zmy.Solitaire\ZMY.Test\bin\Debug\ZMY.Test.pdb
+I:\复习\7大四上学期\Zmy.Solitaire\ZMY.Test\obj\Debug\ZMY.Test.csprojResolveAssemblyReference.cache
+I:\复习\7大四上学期\Zmy.Solitaire\ZMY.Test\obj\Debug\ZMY.Test.exe
+I:\复习\7大四上学期\Zmy.Solitaire\ZMY.Test\obj\Debug\ZMY.Test.pdb
