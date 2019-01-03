@@ -57,7 +57,7 @@ namespace Zmy.Solitaire.customComponent
                 if (isShow)
                 {
                     panelTop.Visible = true;
-                    panelButtom.Visible = true;
+                    //panelButtom.Visible = true;
                 }
                 else
                 {
@@ -69,6 +69,7 @@ namespace Zmy.Solitaire.customComponent
         public Suit CardSuit { get; set; }
         public Number CardNumber { get; set; }
         public int PanelTopHeight { get; set; }
+        public Point LastLocation { get; set; }
         public Stack<Card> CurContainer { get; set; }
 
 
@@ -99,7 +100,8 @@ namespace Zmy.Solitaire.customComponent
             IsShow = false;
             isMoving = false;
             PanelTopHeight = panelTop.Height;
-            
+            LastLocation = Location;
+
             AddEvent(this);
         }
 
@@ -161,7 +163,8 @@ namespace Zmy.Solitaire.customComponent
 
         private void Card_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left && isShow)
+            LastLocation = Location;
+            if (e.Button == MouseButtons.Left && isShow)
             {
                 this.BringToFront();
                 Point t = new Point(e.X, e.Y);
@@ -183,7 +186,7 @@ namespace Zmy.Solitaire.customComponent
                 && (CurContainer as Stack<Card>).Peek() == this)
             {
                 IsShow = true;
-                CurContainer.Pop();
+                //CurContainer.Pop();
             }
         }
 
@@ -206,7 +209,7 @@ namespace Zmy.Solitaire.customComponent
         {
             foreach (Control control in c.Controls)
             {
-                if(control.Name == "panelMenu")
+                if(control.Name == "panelMenu" || control.Name == "panelFunction")
                 {
                     continue;
                 }
@@ -225,5 +228,9 @@ namespace Zmy.Solitaire.customComponent
             }
         }
 
+        private void Card_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

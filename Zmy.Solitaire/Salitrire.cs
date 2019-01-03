@@ -192,35 +192,18 @@ namespace Zmy.Solitaire
             }
         }
 
-        /// <summary>
-        /// 随机牌堆展示牌
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void Mouse_Click_Card(object sender, MouseEventArgs e)
-        {
-            //if(e.Button == MouseButtons.Left)
-            //{
-            //    Card s = sender as Card;
-            //    s.CurContainer = stackRandomShowCard;
-            //    stackRandomShowCard.Push(s);
-            //    s.Location = LocatePoint(panelOpenRandomCard);
-            //    s.BringToFront();
-            //    WatchFormLoad();
-            //}
-
-        }
-
         private void Mouse_Up_Card(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left && (sender as Card).CurContainer == stackRandomCard)
             {
                 Card s = sender as Card;
+                s.CurContainer.Pop();
                 s.CurContainer = stackRandomShowCard;
                 stackRandomShowCard.Push(s);
                 s.Location = LocatePoint(panelOpenRandomCard);
                 s.BringToFront();
                 WatchFormLoad();
+                return;
             }
             Card c = sender as Card;
             for (int i = 0; i < panelMiddleCard.Length; i++)
@@ -230,23 +213,31 @@ namespace Zmy.Solitaire
                     continue;
                 }
                 bool isIntersected = SalitrireUtil.IsIntersected(c, panelMiddleCard[i]);
-                if (isIntersected)
+                if (isIntersected && stackMiddleCard[i].Count > 0)
                 {
                     isIntersected = SalitrireUtil.IsIntersected(c, stackMiddleCard[i].Peek());
                     if (isIntersected)
                     {
-                        c.CurContainer.Pop();
-                        stackMiddleCard[i].Push(c);
-                        c.Location = LocatePoint(panelMiddleCard[i], stackMiddleCard[i]);
-                        c.CurContainer = stackMiddleCard[i];
-                        break;
+                        MoveCard(c, i);
+                        WatchFormLoad();
+                        return;
                     }
                     else
                     {
-
+                        c.Location = c.LastLocation;
+                    }
+                }
+                else if(isIntersected && stackMiddleCard[i].Count == 0)
+                {
+                    if(c.CardNumber == Number.King)
+                    {
+                        MoveCard(c, i);
+                        WatchFormLoad();
+                        return;
                     }
                 }
             }
+            c.Location = c.LastLocation;
         }
 
         /// <summary>
@@ -269,6 +260,17 @@ namespace Zmy.Solitaire
                 }
                 WatchFormLoad();
             }
+        }
+
+        private void MoveCard(Card c, int stackIndex)
+        {
+            c.CurContainer.Pop();
+            stackMiddleCard[stackIndex].Push(c);
+            c.Location = LocatePoint(panelMiddleCard[stackIndex], stackMiddleCard[stackIndex]);
+            if(c.CurContainer.Count > 0)
+                c.CurContainer.Peek().IsShow = true;
+            c.CurContainer = stackMiddleCard[stackIndex];
+            c.LastLocation = c.Location;
         }
 
         /// <summary>
