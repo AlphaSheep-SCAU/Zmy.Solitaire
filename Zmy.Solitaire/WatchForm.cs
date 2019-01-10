@@ -16,16 +16,18 @@ namespace Zmy.Solitaire
         public Stack<Card>[] stackMiddleCard;
         public Stack<Card> stackRandomCard;
         public Stack<Card> stackRandomShowCard;
+        public Stack<Card>[] stackFinishedCard;
 
         public WatchForm()
         {
             InitializeComponent();
             stackMiddleCard = new Stack<Card>[7];
+            stackFinishedCard = new Stack<Card>[4];
             stackRandomCard = new Stack<Card>();
             stackRandomShowCard = new Stack<Card>();
         }
 
-        public WatchForm(Stack<Card>[] smc, Stack<Card> src, Stack<Card> srsc) 
+        public WatchForm(Stack<Card>[] smc, Stack<Card> src, Stack<Card> srsc,Stack<Card>[] sfc) 
         {
             InitializeComponent();
             stackMiddleCard = new Stack<Card>[7];
@@ -33,10 +35,13 @@ namespace Zmy.Solitaire
             {
                 stackMiddleCard[i] = new Stack<Card>(smc[i].ToArray());
             }
-
+            stackFinishedCard = new Stack<Card>[4];
+            for(int i = 0; i < sfc.Length; i++)
+            {
+                stackFinishedCard[i] = new Stack<Card>(sfc[i].ToArray());
+            }
             stackRandomCard = new Stack<Card>(src.ToArray());
             stackRandomShowCard = new Stack<Card>(srsc.ToArray());
-
             LoadForm();
         }
 
@@ -105,6 +110,28 @@ namespace Zmy.Solitaire
             {
                 textBox9.Text += t2.Peek().CardSuit;
                 textBox9.Text += ((int)t2.Pop().CardNumber + 1) + " ";
+            }
+
+            t = stackFinishedCard;
+            while (t[0].Count != 0)
+            {
+                textBox10.Text += t[0].Peek().CardSuit;
+                textBox10.Text += ((int)t[0].Pop().CardNumber + 1) + " ";
+            }
+            while (t[1].Count != 0)
+            {
+                textBox11.Text += t[1].Peek().CardSuit;
+                textBox11.Text += ((int)t[1].Pop().CardNumber + 1) + " ";
+            }
+            while (t[2].Count != 0)
+            {
+                textBox12.Text += t[2].Peek().CardSuit;
+                textBox12.Text += ((int)t[2].Pop().CardNumber + 1) + " ";
+            }
+            while (t[3].Count != 0)
+            {
+                textBox13.Text += t[3].Peek().CardSuit;
+                textBox13.Text += ((int)t[3].Pop().CardNumber + 1) + " ";
             }
         }
     }

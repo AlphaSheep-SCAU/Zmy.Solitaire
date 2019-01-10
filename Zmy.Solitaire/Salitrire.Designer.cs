@@ -95,6 +95,7 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
             this.panelMenu.Name = "panelMenu";
@@ -103,6 +104,7 @@
             // 
             // panelMiddleArea
             // 
+            this.panelMiddleArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMiddleArea.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelMiddleArea.Location = new System.Drawing.Point(0, 725);
             this.panelMiddleArea.Name = "panelMiddleArea";
@@ -190,6 +192,7 @@
             this.Controls.Add(this.panelMenu);
             this.Name = "Salitrire";
             this.Text = "Salitaire";
+            this.Load += new System.EventHandler(this.Salitrire_Load);
             this.panelMiddle.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -20,6 +20,8 @@ namespace Zmy.Solitaire
         /// <returns></returns>
         public static bool IsIntersected(Card card, Panel p)
         {
+            if (card == null || p == null)
+                return false;
             Point pLeftUp = p.Location;
             Point pRightDown = new Point(pLeftUp.X + p.Size.Width, pLeftUp.Y + p.Size.Height);
 
@@ -45,6 +47,8 @@ namespace Zmy.Solitaire
         /// <returns></returns>
         public static bool IsIntersected(Card c1, Card c2)
         {
+            if (c1 == null || c2 == null)
+                return false;
             Point c2LeftUp = c2.Location;
             Point c2RightDown = new Point(c2LeftUp.X + c2.Size.Width, c2LeftUp.Y + c2.Size.Height);
 

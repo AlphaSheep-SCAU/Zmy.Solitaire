@@ -39,6 +39,23 @@ namespace ZMY.Test
             rectangle a = new rectangle(190, 15, 130, 180);
             rectangle b = new rectangle(190, 224, 130, 376);
             Console.WriteLine(IsIntersected(a,b));
+
+            Stack<int> c = new Stack<int>();
+            c.Push(1);
+            c.Push(2);
+            c.Push(3);
+            c.Push(4);
+            c.Push(5);
+            c.Push(6);
+            c.Push(7);
+            c.Push(8);
+            int[] d = c.ToArray();
+
+            foreach(int i in d)
+            {
+                Console.WriteLine(i);
+            }
+
             Console.Read();
         }
     }

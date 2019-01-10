@@ -110,7 +110,6 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Name = "Card";
             this.Size = new System.Drawing.Size(115, 165);
-            this.Load += new System.EventHandler(this.Card_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Card_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Card_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Card_MouseUp);
