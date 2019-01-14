@@ -300,5 +300,33 @@ namespace Zmy.Solitaire.customComponent
             //}
         }
 
+        /// <summary>
+        /// 隐藏或者展示所有的Panel，用于翻牌
+        /// </summary>
+        /// <param name="c">需要翻牌的卡牌</param>
+        /// <param name="hs">隐藏或展示：true：隐藏，false：展示</param>
+        private void HideOrShowAllPanel(Control c, bool hs)
+        {
+            foreach (Control control in c.Controls)
+            {
+                if(control.Name == "panelMenu" || control.Name == "panelFunction")
+                {
+                    continue;
+                }
+                if (control is Panel)
+                {
+                    if (hs)
+                    {
+                        control.Visible = false;
+                    }
+                    else
+                    {
+                        control.Visible = true;
+                    }
+                    HideOrShowAllPanel(control, hs);
+                }
+            }
+        }
+
     }
 }

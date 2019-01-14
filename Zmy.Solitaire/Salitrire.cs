@@ -61,15 +61,13 @@ namespace Zmy.Solitaire
 
             LoadTopCard();
 
-            //GenerateCard();
-            listCard = SalitrireRule.GenerateCard(Mouse_Up_Card);
+            GenerateCard();
 
-            //Shuffle();
-            listCard = SalitrireRule.RandomShuffle(listCard);
+            Shuffle();
 
             Card resetCard = InitCardLocation();
 
-            SalitrireUtil.HideOrShowAllPanel(this, true);
+            HideOrShowAllPanel(this, true);
 
             for (int i = 27; i >= 0; i--)
             {
@@ -88,39 +86,39 @@ namespace Zmy.Solitaire
         /// <summary>
         /// 生成52张卡牌
         /// </summary>
-        //private void GenerateCard()
-        //{
-        //    int i = 0;
-        //    foreach(Suit s in Enum.GetValues(typeof(Suit)))
-        //    {
-        //        if (s == Suit.Reset)
-        //            continue;
-        //        foreach(Number n in Enum.GetValues(typeof(Number)))
-        //        {
-        //            if (n == Number.Reset)
-        //                continue;
-        //            Card tCard = new Card(s, n);
-        //            tCard.MouseUp += Mouse_Up_Card;
-        //            tCard.AddMouseUp(tCard, Mouse_Up_Card);
-        //            listCard[i++] = tCard;
-        //        }
-        //    }
-        //}
+        private void GenerateCard()
+        {
+            int i = 0;
+            foreach(Suit s in Enum.GetValues(typeof(Suit)))
+            {
+                if (s == Suit.Reset)
+                    continue;
+                foreach(Number n in Enum.GetValues(typeof(Number)))
+                {
+                    if (n == Number.Reset)
+                        continue;
+                    Card tCard = new Card(s, n);
+                    tCard.MouseUp += Mouse_Up_Card;
+                    tCard.AddMouseUp(tCard, Mouse_Up_Card);
+                    listCard[i++] = tCard;
+                }
+            }
+        }
 
         /// <summary>
         /// 随机洗牌算法
         /// </summary>
-        //private void Shuffle()
-        //{
-        //    Random r = new Random();
-        //    for(int i = 0; i < 52 ; i++)
-        //    {
-        //        int randomNum = r.Next(0, 52);
-        //        Card t = listCard[i];
-        //        listCard[i] = listCard[randomNum];
-        //        listCard[randomNum] = t;
-        //    }
-        //}
+        private void Shuffle()
+        {
+            Random r = new Random();
+            for(int i = 0; i < 52 ; i++)
+            {
+                int randomNum = r.Next(0, 52);
+                Card t = listCard[i];
+                listCard[i] = listCard[randomNum];
+                listCard[randomNum] = t;
+            }
+        }
 
         /// <summary>
         /// 发牌
@@ -202,7 +200,34 @@ namespace Zmy.Solitaire
             return new Point(panel.Location.X, panel.Location.Y + panelMenu.Height + stack.Count * stack.Peek().PanelTopHeight);
         }
 
-        
+        /// <summary>
+        /// 隐藏或展示除了菜单容器的其他容器
+        /// </summary>
+        /// <param name="c">容器的父容器</param>
+        /// <param name="hs">true为隐藏，false为展示</param>
+        private void HideOrShowAllPanel(Control c, bool hs)
+        {
+            foreach (Control control in c.Controls)
+            {
+                if(control.Name == "panelMenu")
+                {
+                    continue;
+                }
+                if (control is Panel)
+                {
+                    if (hs)
+                    {
+                        control.Visible = false;
+                    }
+                    else
+                    {
+                        control.Visible = true;
+                    }
+                    HideOrShowAllPanel(control, hs);
+                }
+            }
+        }
+
         /// <summary>
         /// 卡牌的MouseUp事件
         /// </summary>
@@ -275,6 +300,13 @@ namespace Zmy.Solitaire
                         WatchFormLoad();
                         return;
                     }
+                    //若不相交，则返回原来的位置
+                    //else
+                    //{
+                    //    foreach(Card cc in c.cardList)
+                    //        cc.Location = cc.LastLocation;
+                    //    c.cardList.Clear();
+                    //}
                 }
                 //若与Panel相交且该Panel没有牌，则判断是否为K
                 else if (isIntersected && stackMiddleCard[i].Count == 0)
