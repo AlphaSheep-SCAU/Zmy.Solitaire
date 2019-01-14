@@ -59,6 +59,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalitrireRule.cs" />
     <Compile Include="SalitrireUtil.cs" />
     <Compile Include="WatchForm.cs">
       <SubType>Form</SubType>

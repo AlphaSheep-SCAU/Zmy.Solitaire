@@ -65,5 +65,34 @@ namespace Zmy.Solitaire
             else
                 return false;
         }
+
+        /// <summary>
+        /// 隐藏或展示除了菜单容器的其他容器
+        /// </summary>
+        /// <param name="c">容器的父容器</param>
+        /// <param name="hs">true为隐藏，false为展示</param>
+        public static void HideOrShowAllPanel(Control c, bool hs)
+        {
+            foreach (Control control in c.Controls)
+            {
+                if (control.Name == "panelMenu")
+                {
+                    continue;
+                }
+                if (control is Panel)
+                {
+                    if (hs)
+                    {
+                        control.Visible = false;
+                    }
+                    else
+                    {
+                        control.Visible = true;
+                    }
+                    HideOrShowAllPanel(control, hs);
+                }
+            }
+        }
+
     }
 }
