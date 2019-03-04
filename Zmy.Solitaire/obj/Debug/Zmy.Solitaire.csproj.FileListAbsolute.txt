@@ -19,3 +19,6 @@ I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.S
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Properties.Resources.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csproj.GenerateResource.Cache
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.WatchForm.resources
+O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe.config
+O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.exe
+O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.pdb

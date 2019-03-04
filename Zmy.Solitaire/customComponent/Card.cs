@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace Zmy.Solitaire.customComponent
 {
     /// <summary>
-    /// 卡牌花色：1-黑桃，2-红心，3-梅花，4-方块
+    /// 卡牌花色：0-黑桃，1-红心，2-梅花，3-方块, -1-重置
     /// </summary>
     public enum Suit
     {
@@ -40,6 +40,14 @@ namespace Zmy.Solitaire.customComponent
         Jack = 10,
         Queen = 11,
         King = 12
+    }
+    /// <summary>
+    /// 卡牌颜色
+    /// </summary>
+    public enum Color
+    {
+        Black = 0,
+        Red = 1
     }
     public partial class Card : UserControl
     {
@@ -70,9 +78,10 @@ namespace Zmy.Solitaire.customComponent
         }
         public Suit CardSuit { get; set; }
         public Number CardNumber { get; set; }
+        public Color CardColor { get; set; }
         public int PanelTopHeight { get; set; }
         public Point LastLocation { get; set; }
-        public Stack<Card> CurContainer { get; set; }
+        public SolitaireStack<Card> CurContainer { get; set; }
         public List<Card> cardList;
 
         /// <summary>
@@ -96,6 +105,7 @@ namespace Zmy.Solitaire.customComponent
             AllowDrop = true;
 
             CardSuit = cardSuit;
+            CardColor = (CardSuit == Suit.Spade || CardSuit == Suit.Club) ? Color.Black : Color.Red;
             SetSuitImage(CardSuit);
 
             CardNumber = cardNumber;
@@ -118,6 +128,7 @@ namespace Zmy.Solitaire.customComponent
         /// <param name="e">需要添加的MouseUp事件</param>
         public void AddMouseUp(Control c, MouseEventHandler e)
         {
+            c.MouseUp += e;
             foreach (Control control in c.Controls)
             {
                 if (control is Panel)
@@ -202,6 +213,7 @@ namespace Zmy.Solitaire.customComponent
         /// <param name="e"></param>
         private void Card_MouseDown(object sender, MouseEventArgs e)
         {
+            cardList.Clear();
             for(int i = 0; i < CurContainer.Count; i++)
             {
                 Card[] arrCard = CurContainer.ToArray();
@@ -216,7 +228,13 @@ namespace Zmy.Solitaire.customComponent
                 }
             }
 
-            foreach(Card card in cardList)
+            if (!SalitrireRule.IsCanMoveMul(cardList))
+            {
+                cardList.Clear();
+                return;
+            }
+
+            foreach (Card card in cardList)
             {
                 card.LastLocation = card.Location;
                 if (e.Button == MouseButtons.Left && isShow)
@@ -327,6 +345,5 @@ namespace Zmy.Solitaire.customComponent
                 }
             }
         }
-
     }
 }

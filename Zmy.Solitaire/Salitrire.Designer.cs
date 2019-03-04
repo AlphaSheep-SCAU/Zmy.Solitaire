@@ -106,7 +106,7 @@
             // 
             this.panelMiddleArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMiddleArea.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelMiddleArea.Location = new System.Drawing.Point(0, 725);
+            this.panelMiddleArea.Location = new System.Drawing.Point(0, 923);
             this.panelMiddleArea.Name = "panelMiddleArea";
             this.panelMiddleArea.Size = new System.Drawing.Size(1154, 52);
             this.panelMiddleArea.TabIndex = 6;
@@ -115,21 +115,21 @@
             // 
             this.panelMiddleCard7.Location = new System.Drawing.Point(995, 224);
             this.panelMiddleCard7.Name = "panelMiddleCard7";
-            this.panelMiddleCard7.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard7.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard7.TabIndex = 3;
             // 
             // panelMiddleCard6
             // 
             this.panelMiddleCard6.Location = new System.Drawing.Point(832, 224);
             this.panelMiddleCard6.Name = "panelMiddleCard6";
-            this.panelMiddleCard6.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard6.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard6.TabIndex = 3;
             // 
             // panelMiddleCard5
             // 
             this.panelMiddleCard5.Location = new System.Drawing.Point(663, 224);
             this.panelMiddleCard5.Name = "panelMiddleCard5";
-            this.panelMiddleCard5.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard5.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard5.TabIndex = 3;
             // 
             // panelMiddleCard4
@@ -137,21 +137,21 @@
             this.panelMiddleCard4.BackColor = System.Drawing.SystemColors.Control;
             this.panelMiddleCard4.Location = new System.Drawing.Point(497, 224);
             this.panelMiddleCard4.Name = "panelMiddleCard4";
-            this.panelMiddleCard4.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard4.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard4.TabIndex = 3;
             // 
             // panelMiddleCard3
             // 
             this.panelMiddleCard3.Location = new System.Drawing.Point(347, 224);
             this.panelMiddleCard3.Name = "panelMiddleCard3";
-            this.panelMiddleCard3.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard3.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard3.TabIndex = 2;
             // 
             // panelMiddleCard1
             // 
             this.panelMiddleCard1.Location = new System.Drawing.Point(27, 224);
             this.panelMiddleCard1.Name = "panelMiddleCard1";
-            this.panelMiddleCard1.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard1.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard1.TabIndex = 0;
             // 
             // panelMiddle
@@ -172,21 +172,21 @@
             this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMiddle.Location = new System.Drawing.Point(0, 70);
             this.panelMiddle.Name = "panelMiddle";
-            this.panelMiddle.Size = new System.Drawing.Size(1154, 655);
+            this.panelMiddle.Size = new System.Drawing.Size(1154, 853);
             this.panelMiddle.TabIndex = 7;
             // 
             // panelMiddleCard2
             // 
             this.panelMiddleCard2.Location = new System.Drawing.Point(190, 224);
             this.panelMiddleCard2.Name = "panelMiddleCard2";
-            this.panelMiddleCard2.Size = new System.Drawing.Size(130, 425);
+            this.panelMiddleCard2.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard2.TabIndex = 1;
             // 
             // Salitrire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1154, 777);
+            this.ClientSize = new System.Drawing.Size(1154, 975);
             this.Controls.Add(this.panelMiddle);
             this.Controls.Add(this.panelMiddleArea);
             this.Controls.Add(this.panelMenu);

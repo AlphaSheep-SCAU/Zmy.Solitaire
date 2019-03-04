@@ -17,6 +17,7 @@ namespace Zmy.Solitaire
         public Stack<Card> stackRandomCard;
         public Stack<Card> stackRandomShowCard;
         public Stack<Card>[] stackFinishedCard;
+        public Stack<PlayerStep> stackPlayerStep;
 
         public WatchForm()
         {
@@ -25,9 +26,10 @@ namespace Zmy.Solitaire
             stackFinishedCard = new Stack<Card>[4];
             stackRandomCard = new Stack<Card>();
             stackRandomShowCard = new Stack<Card>();
+            stackPlayerStep = new Stack<PlayerStep>();
         }
 
-        public WatchForm(Stack<Card>[] smc, Stack<Card> src, Stack<Card> srsc,Stack<Card>[] sfc) 
+        public WatchForm(Stack<Card>[] smc, Stack<Card> src, Stack<Card> srsc,Stack<Card>[] sfc,Stack<PlayerStep> sps) 
         {
             InitializeComponent();
             stackMiddleCard = new Stack<Card>[7];
@@ -42,6 +44,7 @@ namespace Zmy.Solitaire
             }
             stackRandomCard = new Stack<Card>(src.ToArray());
             stackRandomShowCard = new Stack<Card>(srsc.ToArray());
+            stackPlayerStep = new Stack<PlayerStep>(sps.ToArray());
             LoadForm();
         }
 
@@ -60,6 +63,7 @@ namespace Zmy.Solitaire
             textBox11.Text = "";
             textBox12.Text = "";
             textBox13.Text = "";
+            textBox14.Text = "";
 
             Stack<Card>[] t = stackMiddleCard;
             while (t[0].Count != 0)
@@ -132,6 +136,11 @@ namespace Zmy.Solitaire
             {
                 textBox13.Text += t[3].Peek().CardSuit;
                 textBox13.Text += ((int)t[3].Pop().CardNumber + 1) + " ";
+            }
+
+            while(stackPlayerStep.Count != 0)
+            {
+                textBox14.Text += stackPlayerStep.Pop().ToString();
             }
         }
     }

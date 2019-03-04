@@ -51,6 +51,7 @@
     <Compile Include="customComponent\Card.Designer.cs">
       <DependentUpon>Card.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerStep.cs" />
     <Compile Include="Salitrire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -59,7 +60,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SalitrireRule.cs" />
     <Compile Include="SalitrireUtil.cs" />
+    <Compile Include="SolitaireStack.cs" />
     <Compile Include="WatchForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +115,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\diamond_24px1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

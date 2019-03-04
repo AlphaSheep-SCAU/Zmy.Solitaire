@@ -55,6 +55,7 @@
             this.pictureBoxRight.Location = new System.Drawing.Point(88, 105);
             this.pictureBoxRight.Name = "pictureBoxRight";
             this.pictureBoxRight.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRight.TabIndex = 1;
             this.pictureBoxRight.TabStop = false;
             // 
@@ -63,6 +64,7 @@
             this.pictureBoxLeft.Location = new System.Drawing.Point(5, 5);
             this.pictureBoxLeft.Name = "pictureBoxLeft";
             this.pictureBoxLeft.Size = new System.Drawing.Size(24, 24);
+            this.pictureBoxLeft.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLeft.TabIndex = 0;
             this.pictureBoxLeft.TabStop = false;
             // 

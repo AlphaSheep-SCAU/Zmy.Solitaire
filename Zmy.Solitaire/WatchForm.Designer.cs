@@ -54,6 +54,8 @@
             this.textBox12 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.textBox13 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBox14 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox1
@@ -264,11 +266,29 @@
             this.textBox13.Size = new System.Drawing.Size(578, 25);
             this.textBox13.TabIndex = 24;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(15, 443);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(39, 15);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "step";
+            // 
+            // textBox14
+            // 
+            this.textBox14.Location = new System.Drawing.Point(76, 443);
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(1207, 25);
+            this.textBox14.TabIndex = 27;
+            // 
             // WatchForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1336, 507);
+            this.Controls.Add(this.textBox14);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox13);
             this.Controls.Add(this.label12);
@@ -330,5 +350,7 @@
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBox14;
     }
 }
