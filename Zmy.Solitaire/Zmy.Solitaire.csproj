@@ -51,17 +51,23 @@
     <Compile Include="customComponent\Card.Designer.cs">
       <DependentUpon>Card.cs</DependentUpon>
     </Compile>
+    <Compile Include="FirstForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FirstForm.Designer.cs">
+      <DependentUpon>FirstForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="PlayerStep.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Solitrire.cs">
+    <Compile Include="Solitaire.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Solitrire.Designer.cs">
-      <DependentUpon>Solitrire.cs</DependentUpon>
+    <Compile Include="Solitaire.Designer.cs">
+      <DependentUpon>Solitaire.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,8 +89,11 @@
     <EmbeddedResource Include="customComponent\Card.resx">
       <DependentUpon>Card.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Solitrire.resx">
-      <DependentUpon>Solitrire.cs</DependentUpon>
+    <EmbeddedResource Include="FirstForm.resx">
+      <DependentUpon>FirstForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Solitaire.resx">
+      <DependentUpon>Solitaire.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -178,6 +187,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\blank_radius.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\3-40-71background.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\buttonbg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\buttonbg1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\buttonbg2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\buttonbg3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\solitaire_128px_logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\unchoose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\choose.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -71,7 +71,6 @@ namespace Zmy.Solitaire.customComponent
             }
             set
             {
-                Console.WriteLine("setting");
                 isShow = value;
                 if (isShow)
                 {
@@ -141,7 +140,6 @@ namespace Zmy.Solitaire.customComponent
 
         private void Card_Load(object sender, EventArgs e)
         {
-            Console.WriteLine("loading");
             labelNumberLeft.Text = ConvertNumber2String(CardNumber);
             labelNumberRight.Text = labelNumberLeft.Text;
             AddEvent(this);
@@ -185,6 +183,7 @@ namespace Zmy.Solitaire.customComponent
                     AddMouseUp(control, e);
                 }
                 control.MouseUp += e;
+                Console.WriteLine(control.Name);
             }
         }
 

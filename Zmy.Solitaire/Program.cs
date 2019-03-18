@@ -16,7 +16,9 @@ namespace Zmy.Solitaire
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Solitrire());
+            Application.Run(new FirstForm());
+            //Application.Run(new Solitaire());
+            //Application.Run(new VictoryForm());
         }
     }
 }

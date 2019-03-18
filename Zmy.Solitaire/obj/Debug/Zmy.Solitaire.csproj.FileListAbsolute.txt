@@ -21,5 +21,6 @@ I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.W
 O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe.config
 O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.exe
 O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.pdb
-I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Solitrire.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.VictoryForm.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.FirstForm.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Solitaire.resources

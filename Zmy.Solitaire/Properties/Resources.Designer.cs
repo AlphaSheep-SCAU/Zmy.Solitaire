@@ -63,9 +63,59 @@ namespace Zmy.Solitaire.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap _3_40_71background {
+            get {
+                object obj = ResourceManager.GetObject("3-40-71background", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap blank_radius {
             get {
                 object obj = ResourceManager.GetObject("blank_radius", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap buttonbg {
+            get {
+                object obj = ResourceManager.GetObject("buttonbg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap buttonbg1 {
+            get {
+                object obj = ResourceManager.GetObject("buttonbg1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap buttonbg2 {
+            get {
+                object obj = ResourceManager.GetObject("buttonbg2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap buttonbg3 {
+            get {
+                object obj = ResourceManager.GetObject("buttonbg3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -96,6 +146,16 @@ namespace Zmy.Solitaire.Properties {
         internal static System.Drawing.Bitmap cardbackground1 {
             get {
                 object obj = ResourceManager.GetObject("cardbackground1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap choose {
+            get {
+                object obj = ResourceManager.GetObject("choose", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -223,6 +283,16 @@ namespace Zmy.Solitaire.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap solitaire_128px_logo {
+            get {
+                object obj = ResourceManager.GetObject("solitaire_128px_logo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap spade_24px {
             get {
                 object obj = ResourceManager.GetObject("spade_24px", resourceCulture);
@@ -236,6 +306,16 @@ namespace Zmy.Solitaire.Properties {
         internal static System.Drawing.Bitmap spade_48px {
             get {
                 object obj = ResourceManager.GetObject("spade_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap unchoose {
+            get {
+                object obj = ResourceManager.GetObject("unchoose", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

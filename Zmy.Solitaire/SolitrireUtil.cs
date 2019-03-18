@@ -290,6 +290,19 @@ namespace Zmy.Solitaire
             return result;
         }
 
-        
+        public static Point HorizontalCenter(Control c, Control p)
+        {
+            return new Point((p.Width - c.Width) / 2, c.Height);
+        }
+
+        public static Point VerticalCenter(Control c, Control p)
+        {
+            return new Point(c.Width, (p.Height - c.Height) / 2);
+        }
+
+        public static Point HorizontalVerticalCenter(Control c, Control p)
+        {
+            return new Point((p.Width - c.Width) / 2, (p.Height - c.Height) / 2);
+        }
     }
 }

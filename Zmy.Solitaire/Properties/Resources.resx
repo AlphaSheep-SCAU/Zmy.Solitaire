@@ -118,64 +118,88 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="cardbackground-radius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\cardbackground-radius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonbg2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\buttonbg2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamond_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\diamond_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamond_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\diamond_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\heart_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="finish_spade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\finish_spade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reset_card" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\reset_card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardbackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\cardbackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="solitaire_128px_logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\solitaire_128px_logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="winform_backgournd_lightblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\winform_backgournd_lightblue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="heart_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\heart_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="blank_radius" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\blank_radius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="spade_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\spade_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardbackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\cardbackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardbackground" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\cardbackground.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heart_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\heart_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="finish_diamond" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\finish_diamond.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="winform_backgournd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\winform_backgournd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="spade_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\spade_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\buttonbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="buttonbg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\buttonbg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="3-40-71background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\3-40-71background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="club_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\club_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="diamond_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\diamond_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="finish_heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\finish_heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="finish_card" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\finish_card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="diamond_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\diamond_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="cardbackground1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\cardbackground.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="unchoose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\unchoose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="finish_club" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\finish_club.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="heart_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\heart_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="winform_backgournd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\winform_backgournd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="club_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\club_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="cardbackground-radius" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\cardbackground-radius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="winform_backgournd_lightblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\winform_backgournd_lightblue.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="spade_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\spade_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="finish_heart" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\finish_heart.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="blank_radius" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\blank_radius.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="buttonbg3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\buttonbg3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="choose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\choose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
