@@ -1,6 +1,6 @@
 ﻿namespace Zmy.Solitaire
 {
-    partial class Salitrire
+    partial class Solitaire
     {
         /// <summary>
         /// 必需的设计器变量。
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelRandomCard = new System.Windows.Forms.Panel();
             this.panelOpenRandomCard = new System.Windows.Forms.Panel();
             this.panelFinishedCardClub = new System.Windows.Forms.Panel();
@@ -44,6 +45,7 @@
             this.panelMiddleCard1 = new System.Windows.Forms.Panel();
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.panelMiddleCard2 = new System.Windows.Forms.Panel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
             this.panelMiddle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,6 +97,7 @@
             // 
             // panelMenu
             // 
+            this.panelMenu.BackColor = System.Drawing.Color.White;
             this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMenu.Location = new System.Drawing.Point(0, 0);
@@ -134,7 +137,7 @@
             // 
             // panelMiddleCard4
             // 
-            this.panelMiddleCard4.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMiddleCard4.BackColor = System.Drawing.Color.White;
             this.panelMiddleCard4.Location = new System.Drawing.Point(497, 224);
             this.panelMiddleCard4.Name = "panelMiddleCard4";
             this.panelMiddleCard4.Size = new System.Drawing.Size(130, 623);
@@ -149,7 +152,7 @@
             // 
             // panelMiddleCard1
             // 
-            this.panelMiddleCard1.Location = new System.Drawing.Point(27, 224);
+            this.panelMiddleCard1.Location = new System.Drawing.Point(28, 224);
             this.panelMiddleCard1.Name = "panelMiddleCard1";
             this.panelMiddleCard1.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard1.TabIndex = 0;
@@ -182,16 +185,28 @@
             this.panelMiddleCard2.Size = new System.Drawing.Size(130, 623);
             this.panelMiddleCard2.TabIndex = 1;
             // 
-            // Salitrire
+            // timer
+            // 
+            this.timer.Interval = 1000;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
+            // 
+            // Solitaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
+            this.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.winform_backgournd;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1154, 975);
+            this.ControlBox = false;
             this.Controls.Add(this.panelMiddle);
             this.Controls.Add(this.panelMiddleArea);
             this.Controls.Add(this.panelMenu);
-            this.Name = "Salitrire";
-            this.Text = "Salitaire";
+            this.DoubleBuffered = true;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Solitaire";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Solitrire_FormClosed);
             this.Load += new System.EventHandler(this.Salitrire_Load);
             this.panelMiddle.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -216,6 +231,7 @@
         private System.Windows.Forms.Panel panelMiddleCard4;
         private System.Windows.Forms.Panel panelMiddle;
         private System.Windows.Forms.Panel panelMiddleCard2;
+        private System.Windows.Forms.Timer timer;
     }
 }
 

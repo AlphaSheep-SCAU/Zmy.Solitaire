@@ -11,7 +11,7 @@ using Zmy.Solitaire.customComponent;
 
 namespace Zmy.Solitaire
 {
-    class SalitrireUtil
+    class SolitrireUtil
     {
         /// <summary>
         /// 判断卡牌与容器是否相交
@@ -222,6 +222,10 @@ namespace Zmy.Solitaire
             return listCard;
         }
 
+        /// <summary>
+        /// 保存牌局
+        /// </summary>
+        /// <param name="listCard"></param>
         public static void SaveGameXML(Card[] listCard)
         {
             XmlTextWriter xtw = new XmlTextWriter(@"../../testshuffle/" + DateTime.Now.ToLongDateString().Replace("/","") + ".xml", null);
@@ -251,6 +255,11 @@ namespace Zmy.Solitaire
             xtw.Close();
         }
 
+        /// <summary>
+        /// 根据牌组生成XML
+        /// </summary>
+        /// <param name="card"></param>
+        /// <returns></returns>
         private static string GetWhichCode(Card card)
         {
             string result = "";
@@ -280,5 +289,7 @@ namespace Zmy.Solitaire
             }
             return result;
         }
+
+        
     }
 }

@@ -16,7 +16,7 @@ namespace Zmy.Solitaire
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Salitrire());
+            Application.Run(new Solitrire());
         }
     }
 }

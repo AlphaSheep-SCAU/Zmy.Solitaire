@@ -12,7 +12,7 @@ using Zmy.Solitaire.customComponent;
 
 namespace Zmy.Solitaire
 {
-    public partial class Salitrire : Form
+    public partial class Solitaire : Form
     {
         public Card[] listCard;
         private Panel[] panelMiddleCard;
@@ -23,12 +23,61 @@ namespace Zmy.Solitaire
         private SolitaireStack<Card> stackRandomShowCard;
         private WatchForm wf;
         private Stack<PlayerStep> step;
+        private readonly int betweenLength;
+        private Label labelTime;
+        private int timer_second;
+        private int timer_minute;
+        private bool isTimerOn;
+        public int TimerSecond
+        {
+            get
+            {
+                return timer_second;
+            }
+            set
+            {
+                timer_second = value;
+                labelTime.Text = TimerMinute.ToString() + ":";
+                labelTime.Text += TimerSecond > 9 ? TimerSecond.ToString() : "0" + TimerSecond.ToString();
+            }
+        }
+        public int TimerMinute
+        {
+            get
+            {
+                return timer_minute;
+            }
+            set
+            {
+                timer_minute = value;
+                labelTime.Text = TimerMinute.ToString() + ":";
+                labelTime.Text += TimerSecond > 9 ? TimerSecond.ToString() : "0" + TimerSecond.ToString();
+            }
+        }
+
+        private Difficulty difficult;
+        private SwitchNumber switchNumber;
 
         /// <summary>
         /// 构造函数
         /// </summary>
-        public Salitrire()
+        public Solitaire()
         {
+            betweenLength = 24;
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);//禁止擦除背景
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            InitializeComponent();
+        }
+
+        public Solitaire(SwitchNumber switchNumber, Difficulty difficult)
+        {
+            this.switchNumber = switchNumber;
+            this.difficult = difficult;
+            betweenLength = 24;
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);//禁止擦除背景
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             InitializeComponent();
         }
 
@@ -38,6 +87,84 @@ namespace Zmy.Solitaire
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void Salitrire_Load(object sender, EventArgs e)
+        {
+            InitVariable();
+
+            InitGame();
+
+            SolitrireUtil.HideOrShowAllPanel(this, true);
+
+            Card finishCard = new Card(Suit.Finish, Number.Finish);
+            finishCard.BackgroundImage = Properties.Resources.finish_spade;
+            finishCard.Location = LocatePoint(panelFinishedCardSpade);
+            Controls.Add(finishCard);
+
+            finishCard = new Card(Suit.Finish, Number.Finish);
+            finishCard.BackgroundImage = Properties.Resources.finish_heart;
+            finishCard.Location = LocatePoint(panelFinishedCardHeart);
+            Controls.Add(finishCard);
+
+            finishCard = new Card(Suit.Finish, Number.Finish);
+            finishCard.BackgroundImage = Properties.Resources.finish_club;
+            finishCard.Location = LocatePoint(panelFinishedCardClub);
+            Controls.Add(finishCard);
+
+            finishCard = new Card(Suit.Finish, Number.Finish);
+            finishCard.BackgroundImage = Properties.Resources.finish_diamond;
+            finishCard.Location = LocatePoint(panelFinishedCardDiamond);
+            Controls.Add(finishCard);
+
+            panelMenu.BackColor = System.Drawing.Color.FromArgb(50, System.Drawing.Color.Black);
+
+            //生成撤销按钮
+            Button btnUndo = new Button();
+            btnUndo.Text = "撤销";
+            btnUndo.MouseClick += BtnUndo_MouseClick;
+            btnUndo.Location = new Point(0, 25);
+            panelMenu.Controls.Add(btnUndo);
+
+            //生成保存牌局按钮
+            Button btnSaveGame = new Button();
+            btnSaveGame.Text = "保存牌局";
+            btnSaveGame.MouseClick += btnSaveGame_MouseClick;
+            btnSaveGame.Location = new Point(100, 25);
+            panelMenu.Controls.Add(btnSaveGame);
+
+            //生成计时器
+            labelTime = new Label();
+            labelTime.Text = timer_minute.ToString() + ":";
+            labelTime.Text += timer_second > 9 ? timer_second.ToString() : "0" + timer_second.ToString();
+            labelTime.Location = new Point(200, 25);
+            labelTime.BackColor = System.Drawing.Color.Transparent;
+            panelMenu.Controls.Add(labelTime);
+
+            wf = new WatchForm(stackMiddleCard, stackRandomCard, stackRandomShowCard, stackFinishedCard,step);
+            wf.Show();
+        }
+
+
+
+        /// <summary>
+        /// 解决卡顿
+        /// </summary>
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                return cp;
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0014)//禁止清除背景消息
+                return;
+            base.WndProc(ref m);
+        }
+
+        private void InitVariable()
         {
             listCard = new Card[52];
 
@@ -60,45 +187,26 @@ namespace Zmy.Solitaire
 
             step = new Stack<PlayerStep>();
 
+            timer_minute = 0;
+            timer_second = 0;
+            isTimerOn = false;
 
+        }
 
-            listCard = SalitrireRule.GenerateCard(listCard, Mouse_Up_Card);
+        private void InitGame()
+        {
+            listCard = SolitrireRule.GenerateCard(listCard, Mouse_Up_Card);
 
-            listCard = SalitrireRule.RandomShuffle(listCard);
-            //listCard = SalitrireUtil.ReadXml(Mouse_Up_Card);
+            //listCard = SolitrireRule.RandomShuffle(listCard);
+            listCard = SolitrireUtil.ReadXml(Mouse_Up_Card);
 
-            Card resetCard = InitCardLocation();
-
-            SalitrireUtil.HideOrShowAllPanel(this, true);
-
-            for (int i = 27; i >= 0; i--)
-                Controls.Add(listCard[i]);
-            for (int i = 28; i < 52; i++)
-                Controls.Add(listCard[i]);
-            Controls.Add(resetCard);
-
-            //生成撤销按钮
-            Button btnUndo = new Button();
-            btnUndo.Text = "撤销";
-            btnUndo.MouseClick += BtnUndo_MouseClick;
-            btnUndo.Location = new Point(0, 0);
-            panelMenu.Controls.Add(btnUndo);
-
-            //生成保存牌局按钮
-            Button btnSaveGame = new Button();
-            btnSaveGame.Text = "保存牌局";
-            btnSaveGame.MouseClick += btnSaveGame_MouseClick;
-            btnSaveGame.Location = new Point(100, 0);
-            panelMenu.Controls.Add(btnSaveGame);
-
-            wf = new WatchForm(stackMiddleCard, stackRandomCard, stackRandomShowCard, stackFinishedCard,step);
-            wf.Show();
+            InitCardLocation();
         }
 
         /// <summary>
         /// 发牌
         /// </summary>
-        private Card InitCardLocation() 
+        private void InitCardLocation() 
         {
             int i = 0;
             for(int num = 1; num <= 7; num++)
@@ -113,20 +221,27 @@ namespace Zmy.Solitaire
                     i++;
                 }
             }
+
             //放入一张随机牌堆重置的牌
-            Card resetCard = new Card(Suit.Reset,Number.Reset);
+            Card resetCard = new Card(Suit.Reset, Number.Reset);
             resetCard.Location = LocatePoint(panelRandomCard);
-            resetCard.BackgroundImage = Properties.Resources.club_24px;
             resetCard.CurContainer = stackRandomCard;
             stackRandomCard.Push(resetCard);
             resetCard.MouseClick += RandomCard_MouseClick;
+            resetCard.SendToBack();
+
             for (int j = 51 ; j >= i; j--)
             {
                 stackRandomCard.Push(listCard[j]);
                 listCard[j].Location = LocatePoint(panelRandomCard);
                 listCard[j].CurContainer = stackRandomCard;
             }
-            return resetCard;
+            for (int j = 27; j >= 0; j--)
+                Controls.Add(listCard[j]);
+            for (int j = 28; j < 52; j++)
+                Controls.Add(listCard[j]);
+            Controls.Add(resetCard);
+            //return resetCard;
         }
 
         /// <summary>
@@ -172,7 +287,7 @@ namespace Zmy.Solitaire
         /// <returns></returns>
         private Point LocatePoint(Panel panel, Stack<Card> stack)
         {
-            return new Point(panel.Location.X, panel.Location.Y + panelMenu.Height + stack.Count * stack.Peek().PanelTopHeight);
+            return new Point(panel.Location.X, panel.Location.Y + panelMenu.Height + stack.Count * betweenLength);
         }
 
         /// <summary>
@@ -182,8 +297,16 @@ namespace Zmy.Solitaire
         /// <param name="e"></param>
         private void Mouse_Up_Card(object sender, MouseEventArgs e)
         {
+            if (sender == null)
+                return;
+            if (!isTimerOn)
+            {
+                //timer.Enabled = true;
+                isTimerOn = true;
+                timer.Start();
+            }
             //获取卡牌节点
-            while(!(sender is Card))
+            while (sender != null && !(sender is Card))
             {
                 sender = (sender as Control).Parent;
             }
@@ -207,10 +330,10 @@ namespace Zmy.Solitaire
             if (e.Button == MouseButtons.Right && c.IsShow && c.CurContainer.Peek() == c)
             {
                 //判断是否可以移动到完成牌堆
-                if(SalitrireRule.IsCanMove2Finished(c, stackFinishedCard))
+                if(SolitrireRule.IsCanMove2Finished(c, stackFinishedCard))
                 {
                     bool isShowNext = false;
-                    int si = SalitrireRule.Move2FinishedIndex(c);
+                    int si = SolitrireRule.Move2FinishedIndex(c);
                     SolitaireStack<Card> ts = c.CurContainer;
 
                     MoveFinishedCard(c, si, out isShowNext);
@@ -218,10 +341,8 @@ namespace Zmy.Solitaire
                     PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[si], isShowNext);
                     step.Push(ps);
 
-                    if (SalitrireRule.IsWin(stackFinishedCard))
-                    {
-                        MessageBox.Show("You win!");
-                    }
+                    isWinGame();
+
                 }
                 WatchFormLoad();
                 return;
@@ -238,13 +359,13 @@ namespace Zmy.Solitaire
                     continue;
                 }
                 //判断与那个Panel相交
-                bool isIntersected = SalitrireUtil.IsIntersected(c, panelMiddleCard[i]);
+                bool isIntersected = SolitrireUtil.IsIntersected(c, panelMiddleCard[i]);
                 if (isIntersected && stackMiddleCard[i].Count > 0)
                 {
                     //判断是否跟这个Panel的最前端的牌相交
-                    isIntersected = SalitrireUtil.IsIntersected(c, stackMiddleCard[i].Peek());
+                    isIntersected = SolitrireUtil.IsIntersected(c, stackMiddleCard[i].Peek());
                     //若相交，则移动牌（组）
-                    if (isIntersected && SalitrireRule.IsCanMove2Middle(c,stackMiddleCard[i]))
+                    if (isIntersected && SolitrireRule.IsCanMove2Middle(c,stackMiddleCard[i]))
                     {
                         List<Card> t = new List<Card>();
                         for(int ii = c.cardList.Count - 1; ii >= 0; ii--)
@@ -263,10 +384,10 @@ namespace Zmy.Solitaire
                     }
                 }
                 //若与Panel相交且该Panel没有牌，则判断是否为K
-                else if (isIntersected && stackMiddleCard[i].Count == 0)
+                else if (e.Button != MouseButtons.Right && isIntersected && stackMiddleCard[i].Count == 0)
                 {
                     //若是K，则可以移动
-                    if(SalitrireRule.IsCanMove2Middle(c,stackMiddleCard[i]))
+                    if(SolitrireRule.IsCanMove2Middle(c,stackMiddleCard[i]))
                     {
                         List<Card> t = new List<Card>();
                         for (int ii = c.cardList.Count - 1; ii >= 0; ii--)
@@ -304,7 +425,7 @@ namespace Zmy.Solitaire
                 if (stackFinishedCard[i].Count > 0) 
                 {
                     //判断移动的卡牌是否与该牌堆相交
-                    bool isIntersected = SalitrireUtil.IsIntersected(c, stackFinishedCard[i].Peek());
+                    bool isIntersected = SolitrireUtil.IsIntersected(c, stackFinishedCard[i].Peek());
                     //如果相交，则移动卡牌
                     if (isIntersected)
                     {
@@ -317,6 +438,8 @@ namespace Zmy.Solitaire
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
+
+                            isWinGame();
 
                             WatchFormLoad();
                             return;
@@ -331,6 +454,9 @@ namespace Zmy.Solitaire
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
 
+                            isWinGame();
+
+
                             WatchFormLoad();
                             return;
                         }
@@ -343,6 +469,8 @@ namespace Zmy.Solitaire
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
+
+                            isWinGame();
 
                             WatchFormLoad();
                             return;
@@ -357,6 +485,9 @@ namespace Zmy.Solitaire
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
 
+                            isWinGame();
+
+
                             WatchFormLoad();
                             return;
                         }
@@ -366,7 +497,7 @@ namespace Zmy.Solitaire
                 else
                 {
                     //判断是否与牌堆相交
-                    bool isIntersected = SalitrireUtil.IsIntersected(c, panelFinishedCard[i]);
+                    bool isIntersected = SolitrireUtil.IsIntersected(c, panelFinishedCard[i]);
                     //如果相交，且点数为A，则可以移动
                     if (isIntersected)
                     {
@@ -440,6 +571,14 @@ namespace Zmy.Solitaire
         /// <param name="e"></param>
         private void RandomCard_MouseClick(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+                return;
+            if (!isTimerOn)
+            {
+                //timer.Enabled = true;
+                isTimerOn = true;
+                timer.Start();
+            }
             if (stackRandomShowCard.Count <= 0)
                 return;
             if(e.Button == MouseButtons.Left)
@@ -613,9 +752,62 @@ namespace Zmy.Solitaire
 
         private void btnSaveGame_MouseClick(object sender, MouseEventArgs e)
         {
-            SalitrireUtil.SaveGameXML(listCard);
+            SolitrireUtil.SaveGameXML(listCard);
             MessageBox.Show("save successfully");
         }
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            TimerSecond++;
+            if(TimerSecond >= 60)
+            {
+                TimerSecond = TimerSecond % 60;
+                TimerMinute++;
+            }
+            //labelTime.Text = timer_minute.ToString() + ":";
+            //labelTime.Text += timer_sencond > 9 ? timer_sencond.ToString() : "0" + timer_sencond.ToString();
+        }
+
+        private void isWinGame()
+        {
+            if (SolitrireRule.IsWin(stackFinishedCard))
+            {
+                //timer.Enabled = false;
+                timer.Stop();
+                VictoryForm vf = new VictoryForm(difficult, labelTime.Text);
+
+                DialogResult re = vf.ShowDialog();
+                if (re == DialogResult.Cancel)
+                    Close();
+                else if(re == DialogResult.OK)
+                {
+                    ClearGame();
+                    InitGame();
+                }
+                WatchFormLoad();
+            }
+        }
+        
+        private void ClearGame()
+        {
+            for (int i = 0; i < listCard.Length; i++)
+                listCard[i].Dispose();
+            stackRandomCard.Pop().Dispose();
+            for (int i = 0; i < 4; i++)
+                stackFinishedCard[i].Clear();
+            for(int i = 0; i < 7; i++)
+                stackMiddleCard[i].Clear();
+            stackRandomCard.Clear();
+            stackRandomShowCard.Clear();
+            TimerMinute = 0;
+            TimerSecond = 0;
+            isTimerOn = false;
+        }
+
+        private void Solitrire_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            DialogResult = DialogResult.Cancel;
+            wf.Close();
+        }
     }
 }

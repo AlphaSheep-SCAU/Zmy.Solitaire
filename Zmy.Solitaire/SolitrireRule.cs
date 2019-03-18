@@ -8,7 +8,7 @@ using Zmy.Solitaire.customComponent;
 
 namespace Zmy.Solitaire
 {
-    class SalitrireRule
+    class SolitrireRule
     {
         /// <summary>
         /// 生成52张卡牌
@@ -18,11 +18,11 @@ namespace Zmy.Solitaire
             int i = 0;
             foreach (Suit s in Enum.GetValues(typeof(Suit)))
             {
-                if (s == Suit.Reset)
+                if (s == Suit.Reset || s == Suit.Finish)
                     continue;
                 foreach (Number n in Enum.GetValues(typeof(Number)))
                 {
-                    if (n == Number.Reset)
+                    if (n == Number.Reset || n == Number.Finish)
                         continue;
                     Card tCard = new Card(s, n);
                     //tCard.MouseUp += Mouse_Up_Card;
@@ -122,6 +122,11 @@ namespace Zmy.Solitaire
             return (finishedStack[0].Count == 13 && finishedStack[1].Count == 13 && finishedStack[2].Count == 13 && finishedStack[3].Count == 13);
         }
 
+        /// <summary>
+        /// 判断是否可以移动几张
+        /// </summary>
+        /// <param name="cardList"></param>
+        /// <returns></returns>
         public static bool IsCanMoveMul(List<Card> cardList)
         {
             bool flag = true;

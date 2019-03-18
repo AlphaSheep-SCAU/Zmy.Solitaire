@@ -104,20 +104,20 @@ namespace ZMY.Test
             //int b = 0;
             //aaa(50, out b);
             //Console.WriteLine(b);
-            XmlTextWriter xtw = new XmlTextWriter(@"../../testshuffle/hehe.xml", null);
-            xtw.Formatting = Formatting.Indented;
-            xtw.WriteStartDocument();
-            xtw.WriteStartElement("solitaire");
-            xtw.WriteStartElement("random");
-            xtw.WriteElementString("card","A1");
-            xtw.WriteElementString("card","A1");
-            xtw.WriteElementString("card","A1");
-            xtw.WriteElementString("card","A1");
-            xtw.WriteElementString("card","A1");
-            xtw.WriteEndElement();
-            xtw.WriteEndElement();
-            xtw.Flush();
-            xtw.Close();
+            //XmlTextWriter xtw = new XmlTextWriter(@"../../testshuffle/hehe.xml", null);
+            //xtw.Formatting = Formatting.Indented;
+            //xtw.WriteStartDocument();
+            //xtw.WriteStartElement("solitaire");
+            //xtw.WriteStartElement("random");
+            //xtw.WriteElementString("card","A1");
+            //xtw.WriteElementString("card","A1");
+            //xtw.WriteElementString("card","A1");
+            //xtw.WriteElementString("card","A1");
+            //xtw.WriteElementString("card","A1");
+            //xtw.WriteEndElement();
+            //xtw.WriteEndElement();
+            //xtw.Flush();
+            //xtw.Close();
             Console.Read();
         }
     }
