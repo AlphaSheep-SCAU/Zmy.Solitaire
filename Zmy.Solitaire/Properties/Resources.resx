@@ -127,6 +127,9 @@
   <data name="diamond_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\diamond_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="buttonbg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\buttonbg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="diamond_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\diamond_48px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -135,6 +138,9 @@
   </data>
   <data name="finish_spade" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\finish_spade.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="choose" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\choose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="reset_card" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\reset_card.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -163,8 +169,8 @@
   <data name="buttonbg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\buttonbg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="buttonbg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\buttonbg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="winform_backgournd" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\winform_backgournd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="3-40-71background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\3-40-71background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -184,9 +190,6 @@
   <data name="finish_club" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\finish_club.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="winform_backgournd" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\winform_backgournd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="club_24px" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\club_24px.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -199,7 +202,40 @@
   <data name="buttonbg3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\buttonbg3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="choose" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\images\choose.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="clubJack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\clubJack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clubKing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\clubKing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="clubQueen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\clubQueen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamondJack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\diamondJack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamondKing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\diamondKing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="diamondQueen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\diamondQueen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heartJack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\heartJack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heartKing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\heartKing.PNG;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="heartQueen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\heartQueen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spadeJack" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\spadeJack.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spadeKing" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\spadeKing.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="spadeQueen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\images\spadeQueen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

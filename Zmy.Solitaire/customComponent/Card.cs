@@ -93,6 +93,8 @@ namespace Zmy.Solitaire.customComponent
         public Suit CardSuit { get; set; }
         public Number CardNumber { get; set; }
         public Color CardColor { get; set; }
+        public Image CardImage { get; set; }
+        public Image CardImageRotate { get; set; }
         //public int PanelTopHeight { get; set; }
         public Point LastLocation { get; set; }
         public SolitaireStack<Card> CurContainer { get; set; }
@@ -119,11 +121,17 @@ namespace Zmy.Solitaire.customComponent
         {
             InitializeComponent();
 
+            CardNumber = cardNumber;
             CardSuit = cardSuit;
             CardColor = (CardSuit == Suit.Spade || CardSuit == Suit.Club) ? Color.Black : Color.Red;
+            CardImage = CardSuit == Suit.Spade ? Properties.Resources.spade_48px : 
+                CardSuit == Suit.Heart ? Properties.Resources.heart_48px : 
+                CardSuit == Suit.Club ? Properties.Resources.club_48px : Properties.Resources.diamond_48px;
+            CardImageRotate = CardImage.Clone() as Image;
+            CardImageRotate.RotateFlip(RotateFlipType.Rotate180FlipX);
             SetSuitImage(CardSuit);
+            SetMiddlePicture();
 
-            CardNumber = cardNumber;
 
             IsShow = false;
             isMoving = false;
@@ -141,7 +149,8 @@ namespace Zmy.Solitaire.customComponent
         private void Card_Load(object sender, EventArgs e)
         {
             labelNumberLeft.Text = ConvertNumber2String(CardNumber);
-            labelNumberRight.Text = labelNumberLeft.Text;
+            //rotateLabel.Text = labelNumberLeft.Text;
+            rotateLabel.RText = labelNumberLeft.Text == "10" ? "10" : " " + labelNumberLeft.Text;
             AddEvent(this);
 
         }
@@ -235,40 +244,22 @@ namespace Zmy.Solitaire.customComponent
         /// <param name="csuit">卡牌的花色</param>
         private void SetSuitImage(Suit csuit)
         {
+            pictureBoxLeft.Image = CardImage;
+            pictureBoxRight.Image = CardImageRotate;
+            if (CardColor == Color.Red)
+            {
+                labelNumberLeft.ForeColor = System.Drawing.Color.DarkRed;
+                rotateLabel.ForeColor = System.Drawing.Color.DarkRed;
+            }
             int suit = (int)csuit;
             switch (suit)
             {
-                case 0:
-                    pictureBoxLeft.Image = Properties.Resources.spade_24px;
-                    pictureBoxRight.Image = Properties.Resources.spade_24px;
-                    pictureBoxMiddle.Image = Properties.Resources.spade_48px;
-                    break;
-                case 1:
-                    pictureBoxLeft.Image = Properties.Resources.heart_24px;
-                    pictureBoxRight.Image = Properties.Resources.heart_24px;
-                    pictureBoxMiddle.Image = Properties.Resources.heart_48px;
-                    labelNumberLeft.ForeColor = System.Drawing.Color.DarkRed;
-                    labelNumberRight.ForeColor = System.Drawing.Color.DarkRed;
-                    break;
-                case 2:
-                    pictureBoxLeft.Image = Properties.Resources.club_24px;
-                    pictureBoxRight.Image = Properties.Resources.club_24px;
-                    pictureBoxMiddle.Image = Properties.Resources.club_48px;
-                    break;
-                case 3:
-                    pictureBoxLeft.Image = Properties.Resources.diamond_24px;
-                    pictureBoxRight.Image = Properties.Resources.diamond_24px;
-                    pictureBoxMiddle.Image = Properties.Resources.diamond_48px;
-                    labelNumberLeft.ForeColor = System.Drawing.Color.DarkRed;
-                    labelNumberRight.ForeColor = System.Drawing.Color.DarkRed;
-                    break;
                 case -1:
                     BackgroundImage = Properties.Resources.reset_card;
                     BackColor = System.Drawing.Color.Transparent;
                     break;
                 case -2:
                     BackColor = System.Drawing.Color.Transparent;
-                    //BackgroundImage = Properties.Resources.finish_card;
                     break;
                 default:
                     break;
@@ -395,9 +386,239 @@ namespace Zmy.Solitaire.customComponent
             }
         }
 
-        private void Card_Paint(object sender, PaintEventArgs e)
+        private void SetMiddlePicture()
         {
+            if (CardNumber == Number.Ace)
+                SetMiddlePictureOne();
+            else if (CardNumber == Number.Two)
+                SetMiddlePictureTwo();
+            else if (CardNumber == Number.Three)
+                SetMiddlePictureThree();
+            else if (CardNumber == Number.Four)
+                SetMiddlePictureFour();
+            else if (CardNumber == Number.Five)
+                SetMiddlePictureFive();
+            else if (CardNumber == Number.Six)
+                SetMiddlePictureSix();
+            else if (CardNumber == Number.Seven)
+                SetMiddlePictureSeven();
+            else if (CardNumber == Number.Eight)
+                SetMiddlePictureEight();
+            else if (CardNumber == Number.Nine)
+                SetMiddlePictureNine(false);
+            else if (CardNumber == Number.Ten)
+                SetMiddlePictureTen();
+            else if (CardNumber == Number.Jack)
+                SetMiddlePictureJack();
+            else if (CardNumber == Number.Queen)
+                SetMiddlePictureQueen();
+            else if (CardNumber == Number.King)
+                SetMiddlePictureKing();
+        }   
 
+        private void SetMiddlePictureOne()
+        {
+            pictureBoxMiddle.SizeMode = PictureBoxSizeMode.CenterImage;
+            pictureBoxMiddle.Image = CardImage;
+        }
+
+        private void SetMiddlePictureTwo()
+        {
+            PictureBox pb1 = GeneratePictureBox();
+            PictureBox pb2 = GeneratePictureBox();
+            pb1.Location = new Point(pb1.Location.X, 10);
+            pb2.Location = new Point(pb2.Location.X, 105);
+            pb1.Location = SolitrireUtil.HorizontalCenter(pb1, panelMiddle);
+            pb2.Location = SolitrireUtil.HorizontalCenter(pb2, panelMiddle);
+            pb1.Image = CardImage;
+            pb2.Image = CardImageRotate;
+            panelMiddle.Controls.Add(pb1);
+            panelMiddle.Controls.Add(pb2);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureThree()
+        {
+            SetMiddlePictureTwo();
+            PictureBox pb = GeneratePictureBox();
+            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Image = CardImage;
+            panelMiddle.Controls.Add(pb);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureFour()
+        {
+            PictureBox pb1 = GeneratePictureBox();
+            PictureBox pb2 = GeneratePictureBox();
+            PictureBox pb3 = GeneratePictureBox();
+            PictureBox pb4 = GeneratePictureBox();
+            pb1.Location = new Point(0, 15);
+            pb2.Location = new Point(pictureBoxMiddle.Width - 22, 15);
+            pb3.Location = new Point(0, 100);
+            pb4.Location = new Point(pictureBoxMiddle.Width - 22, 100);
+            pb1.Image = pb2.Image = CardImage;
+            pb3.Image = pb4.Image = CardImageRotate;
+            panelMiddle.Controls.Add(pb1);
+            panelMiddle.Controls.Add(pb2);
+            panelMiddle.Controls.Add(pb3);
+            panelMiddle.Controls.Add(pb4);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureFive()
+        {
+            SetMiddlePictureFour();
+            PictureBox pb = GeneratePictureBox();
+            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Image = CardImage;
+            panelMiddle.Controls.Add(pb);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureSix()
+        {
+            SetMiddlePictureFour();
+            PictureBox pb1 = GeneratePictureBox();
+            PictureBox pb2 = GeneratePictureBox();
+            pb1.Location = SolitrireUtil.VerticalCenter(pb1, panelMiddle);
+            pb1.Location = new Point(0, pb1.Location.Y);
+            pb2.Location = new Point(pictureBoxMiddle.Width - 24, pb1.Location.Y);
+            pb1.Image = pb2.Image = CardImage;
+            panelMiddle.Controls.Add(pb1);
+            panelMiddle.Controls.Add(pb2);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureSeven()
+        {
+            SetMiddlePictureSix();
+            PictureBox pb = GeneratePictureBox();
+            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Location = new Point(pb.Location.X, (pb.Location.Y - 15) / 2 + 15);
+            pb.Image = CardImage;
+            pb.BringToFront();
+            panelMiddle.Controls.Add(pb);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureEight()
+        {
+            SetMiddlePictureSeven();
+            PictureBox pb = GeneratePictureBox();
+            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Location = new Point(pb.Location.X, (100 + (pb.Location.Y / 2)) / 2 + 15);
+            pb.Image = CardImageRotate;
+            pb.BringToFront();
+            panelMiddle.Controls.Add(pb);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureNine(bool isTen)
+        {
+            if (!isTen)
+            {
+                PictureBox pb5 = GeneratePictureBox();
+                pb5.Location = SolitrireUtil.HorizontalVerticalCenter(pb5, panelMiddle);
+                pb5.Image = CardImage;
+                pb5.BringToFront();
+                panelMiddle.Controls.Add(pb5);
+            }
+            SetMiddlePictureFour();
+            PictureBox pb1 = GeneratePictureBox();
+            PictureBox pb2 = GeneratePictureBox();
+            PictureBox pb3 = GeneratePictureBox();
+            PictureBox pb4 = GeneratePictureBox();
+            pb1.Location = new Point(0, 28 + 15);
+            pb2.Location = new Point(pictureBoxMiddle.Width - 22, 28 + 15);
+            pb3.Location = new Point(0, 100 - 28);
+            pb4.Location = new Point(pictureBoxMiddle.Width - 22, 100 - 28);
+            pb1.Image = pb2.Image = CardImage;
+            pb3.Image = pb4.Image = CardImageRotate;
+            pb1.SendToBack();
+            pb2.SendToBack();
+            pb3.SendToBack();
+            pb4.SendToBack();
+            panelMiddle.Controls.Add(pb1);
+            panelMiddle.Controls.Add(pb2);
+            panelMiddle.Controls.Add(pb3);
+            panelMiddle.Controls.Add(pb4);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureTen()
+        {
+            PictureBox pb1 = GeneratePictureBox();
+            PictureBox pb2 = GeneratePictureBox();
+            pb1.Location = pb2.Location = SolitrireUtil.HorizontalCenter(pb1, panelMiddle);
+            pb1.Location = new Point(pb1.Location.X, (100 - 28 - 28 - 15) / 2 + 15);
+            pb2.Location = new Point(pb1.Location.X, (100 + ((100 - 28) / 2)) / 2 + 15);
+            pb1.Image = CardImage;
+            pb2.Image = CardImageRotate;
+            pb1.BringToFront();
+            pb2.BringToFront();
+            panelMiddle.Controls.Add(pb1);
+            panelMiddle.Controls.Add(pb2);
+            SetMiddlePictureNine(true);
+            pictureBoxMiddle.SendToBack();
+        }
+
+        private void SetMiddlePictureJack()
+        {
+            pictureBoxMiddle.Image = CardSuit == Suit.Spade ? 
+                Properties.Resources.spadeJack : CardSuit == Suit.Heart ? 
+                Properties.Resources.heartJack : CardSuit == Suit.Club ? 
+                Properties.Resources.clubJack : Properties.Resources.diamondJack;
+        }
+
+        private void SetMiddlePictureQueen()
+        {
+            pictureBoxMiddle.Image = CardSuit == Suit.Spade ?
+                Properties.Resources.spadeQueen : CardSuit == Suit.Heart ?
+                Properties.Resources.heartQueen : CardSuit == Suit.Club ?
+                Properties.Resources.clubQueen : Properties.Resources.diamondQueen;
+        }
+
+        private void SetMiddlePictureKing()
+        {
+            pictureBoxMiddle.Image = CardSuit == Suit.Spade ?
+                Properties.Resources.spadeKing : CardSuit == Suit.Heart ?
+                Properties.Resources.heartKing : CardSuit == Suit.Club ?
+                Properties.Resources.clubKing : Properties.Resources.diamondKing;
+        }
+
+        private PictureBox GeneratePictureBox()
+        {
+            PictureBox pb = new PictureBox();
+            pb.Height = pb.Width = 22;
+            pb.SizeMode = PictureBoxSizeMode.StretchImage;
+            pb.BackColor = System.Drawing.Color.Transparent;
+            return pb;
+        }
+
+        private void panelTop_Paint(object sender, PaintEventArgs e)
+        {
+            if (!isShow)
+                return;
+            Panel t = sender as Panel;
+            ControlPaint.DrawBorder(e.Graphics,
+                t.ClientRectangle,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
+                System.Drawing.Color.FromArgb(211, 212, 211), 1, ButtonBorderStyle.Solid,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid);
+        }
+
+        private void pictureBoxMiddle_Paint(object sender, PaintEventArgs e)
+        {
+            if (!isShow)
+                return;
+            ControlPaint.DrawBorder(e.Graphics,
+                pictureBoxMiddle.ClientRectangle,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
+                System.Drawing.Color.FromArgb(211, 212, 211), 1, ButtonBorderStyle.Solid,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid);
         }
     }
 }

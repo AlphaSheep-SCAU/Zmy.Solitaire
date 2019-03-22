@@ -35,7 +35,6 @@
             this.panelFinishedCardDiamond = new System.Windows.Forms.Panel();
             this.panelFinishedCardHeart = new System.Windows.Forms.Panel();
             this.panelFinishedCardSpade = new System.Windows.Forms.Panel();
-            this.panelMenu = new System.Windows.Forms.Panel();
             this.panelMiddleArea = new System.Windows.Forms.Panel();
             this.panelMiddleCard7 = new System.Windows.Forms.Panel();
             this.panelMiddleCard6 = new System.Windows.Forms.Panel();
@@ -46,6 +45,7 @@
             this.panelMiddle = new System.Windows.Forms.Panel();
             this.panelMiddleCard2 = new System.Windows.Forms.Panel();
             this.timer = new System.Windows.Forms.Timer(this.components);
+            this.panelMenu = new System.Windows.Forms.Panel();
             this.panelMiddle.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -95,23 +95,13 @@
             this.panelFinishedCardSpade.Size = new System.Drawing.Size(130, 180);
             this.panelFinishedCardSpade.TabIndex = 2;
             // 
-            // panelMenu
-            // 
-            this.panelMenu.BackColor = System.Drawing.Color.White;
-            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMenu.Location = new System.Drawing.Point(0, 0);
-            this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(1154, 70);
-            this.panelMenu.TabIndex = 5;
-            // 
             // panelMiddleArea
             // 
             this.panelMiddleArea.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelMiddleArea.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelMiddleArea.Location = new System.Drawing.Point(0, 923);
+            this.panelMiddleArea.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMiddleArea.Location = new System.Drawing.Point(0, 49);
             this.panelMiddleArea.Name = "panelMiddleArea";
-            this.panelMiddleArea.Size = new System.Drawing.Size(1154, 52);
+            this.panelMiddleArea.Size = new System.Drawing.Size(1154, 926);
             this.panelMiddleArea.TabIndex = 6;
             // 
             // panelMiddleCard7
@@ -172,8 +162,8 @@
             this.panelMiddle.Controls.Add(this.panelMiddleCard4);
             this.panelMiddle.Controls.Add(this.panelMiddleCard2);
             this.panelMiddle.Controls.Add(this.panelMiddleCard3);
-            this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMiddle.Location = new System.Drawing.Point(0, 70);
+            this.panelMiddle.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMiddle.Location = new System.Drawing.Point(0, 49);
             this.panelMiddle.Name = "panelMiddle";
             this.panelMiddle.Size = new System.Drawing.Size(1154, 853);
             this.panelMiddle.TabIndex = 7;
@@ -190,6 +180,16 @@
             this.timer.Interval = 1000;
             this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
+            // panelMenu
+            // 
+            this.panelMenu.BackColor = System.Drawing.Color.White;
+            this.panelMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMenu.Location = new System.Drawing.Point(0, 0);
+            this.panelMenu.Name = "panelMenu";
+            this.panelMenu.Size = new System.Drawing.Size(1154, 49);
+            this.panelMenu.TabIndex = 5;
+            // 
             // Solitaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -198,14 +198,13 @@
             this.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.winform_backgournd;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1154, 975);
-            this.ControlBox = false;
             this.Controls.Add(this.panelMiddle);
             this.Controls.Add(this.panelMiddleArea);
             this.Controls.Add(this.panelMenu);
             this.DoubleBuffered = true;
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Solitaire";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Solitaire";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Solitrire_FormClosed);
             this.Load += new System.EventHandler(this.Salitrire_Load);
             this.panelMiddle.ResumeLayout(false);
@@ -221,7 +220,6 @@
         private System.Windows.Forms.Panel panelFinishedCardDiamond;
         private System.Windows.Forms.Panel panelFinishedCardHeart;
         private System.Windows.Forms.Panel panelFinishedCardSpade;
-        private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Panel panelMiddleArea;
         private System.Windows.Forms.Panel panelMiddleCard3;
         private System.Windows.Forms.Panel panelMiddleCard1;
@@ -232,6 +230,7 @@
         private System.Windows.Forms.Panel panelMiddle;
         private System.Windows.Forms.Panel panelMiddleCard2;
         private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.Panel panelMenu;
     }
 }
 

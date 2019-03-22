@@ -292,12 +292,12 @@ namespace Zmy.Solitaire
 
         public static Point HorizontalCenter(Control c, Control p)
         {
-            return new Point((p.Width - c.Width) / 2, c.Height);
+            return new Point((p.Width - c.Width) / 2, c.Location.Y);
         }
 
         public static Point VerticalCenter(Control c, Control p)
         {
-            return new Point(c.Width, (p.Height - c.Height) / 2);
+            return new Point(c.Location.X, (p.Height - c.Height) / 2);
         }
 
         public static Point HorizontalVerticalCenter(Control c, Control p)

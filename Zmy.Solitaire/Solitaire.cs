@@ -24,6 +24,7 @@ namespace Zmy.Solitaire
         private WatchForm wf;
         private Stack<PlayerStep> step;
         private readonly int betweenLength;
+        private readonly int leftLength;
         private Label labelTime;
         private int timer_second;
         private int timer_minute;
@@ -74,7 +75,8 @@ namespace Zmy.Solitaire
         {
             this.switchNumber = switchNumber;
             this.difficult = difficult;
-            betweenLength = 24;
+            betweenLength = 35;
+            leftLength = 24;
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);//禁止擦除背景
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
@@ -120,14 +122,14 @@ namespace Zmy.Solitaire
             Button btnUndo = new Button();
             btnUndo.Text = "撤销";
             btnUndo.MouseClick += BtnUndo_MouseClick;
-            btnUndo.Location = new Point(0, 25);
+            btnUndo.Location = new Point(0, 15);
             panelMenu.Controls.Add(btnUndo);
 
             //生成保存牌局按钮
             Button btnSaveGame = new Button();
             btnSaveGame.Text = "保存牌局";
             btnSaveGame.MouseClick += btnSaveGame_MouseClick;
-            btnSaveGame.Location = new Point(100, 25);
+            btnSaveGame.Location = new Point(100, 15);
             panelMenu.Controls.Add(btnSaveGame);
 
             //生成计时器
@@ -314,17 +316,53 @@ namespace Zmy.Solitaire
             //如果是在随机牌堆上，则展示牌
             if (e.Button == MouseButtons.Left && c.CurContainer == stackRandomCard)
             {
-                c.CurContainer.Pop();
-                c.CurContainer = stackRandomShowCard;
-                stackRandomShowCard.Push(c);
-                c.Location = LocatePoint(panelOpenRandomCard);
-                c.BringToFront();
+                if(switchNumber == SwitchNumber.One)
+                {
+                    //翻一张
+                    c.CurContainer.Pop();
+                    c.CurContainer = stackRandomShowCard;
+                    stackRandomShowCard.Push(c);
+                    c.Location = LocatePoint(panelOpenRandomCard);
+                    c.BringToFront();
 
-                PlayerStep ps = new PlayerStep(c,null,stackRandomCard,stackRandomShowCard,false);
-                step.Push(ps);
+                    PlayerStep ps = new PlayerStep(c, null, stackRandomCard, stackRandomShowCard, false);
+                    step.Push(ps);
 
-                WatchFormLoad();
-                return;
+                    WatchFormLoad();
+                    return;
+                }
+                else
+                {
+                    //翻三张
+                    if(stackRandomShowCard.Count > 0)
+                    {
+                        Card[] ts = stackRandomShowCard.ToArray();
+                        ts[1].BringToFront();
+                        ts[1].Location = LocatePoint(panelOpenRandomCard);
+                        ts[0].BringToFront();
+                        ts[0].Location = LocatePoint(panelOpenRandomCard);
+                    }
+
+                    Card[] t = new Card[3];
+                    t[0] = c.CurContainer.Pop();
+                    t[1] = c.CurContainer.Pop();
+                    t[2] = c.CurContainer.Pop();
+                    for(int i = 0; i < 3; i++)
+                    {
+                        t[i].IsShow = true;
+                        t[i].CurContainer = stackRandomShowCard;
+                        stackRandomShowCard.Push(t[i]);
+                        t[i].Location = LocatePoint(panelOpenRandomCard);
+                        t[i].Location = new Point(t[i].Location.X + leftLength * i, t[i].Location.Y);
+                        t[i].BringToFront();
+                    }
+
+                    PlayerStep ps = new PlayerStep(null, t.ToList(), stackRandomCard, stackRandomShowCard, false);
+                    step.Push(ps);
+
+                    WatchFormLoad();
+                    return;
+                }
             }
             #region 右键事件
             if (e.Button == MouseButtons.Right && c.IsShow && c.CurContainer.Peek() == c)
@@ -337,6 +375,9 @@ namespace Zmy.Solitaire
                     SolitaireStack<Card> ts = c.CurContainer;
 
                     MoveFinishedCard(c, si, out isShowNext);
+
+                    if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                        PushLeft();
 
                     PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[si], isShowNext);
                     step.Push(ps);
@@ -375,6 +416,9 @@ namespace Zmy.Solitaire
 
                         MoveCard(c.cardList, i, out isShowNext);
 
+                        if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                            PushLeft();
+
                         PlayerStep ps = new PlayerStep(null, t, ts, stackMiddleCard[i], isShowNext);
                         step.Push(ps);
 
@@ -397,6 +441,9 @@ namespace Zmy.Solitaire
                         SolitaireStack<Card> ts = c.CurContainer;
 
                         MoveCard(c.cardList, i, out isShowNext);
+
+                        if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                            PushLeft();
 
                         PlayerStep ps = new PlayerStep(null, t, ts, stackMiddleCard[i], isShowNext);
                         step.Push(ps);
@@ -433,8 +480,11 @@ namespace Zmy.Solitaire
                         {
                             bool isShowNext = false;
                             SolitaireStack<Card> ts = c.CurContainer;
-                            
+
                             MoveFinishedCard(c, i, out isShowNext);
+
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
@@ -450,6 +500,9 @@ namespace Zmy.Solitaire
                             SolitaireStack<Card> ts = c.CurContainer;
 
                             MoveFinishedCard(c, i, out isShowNext);
+
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
@@ -467,6 +520,9 @@ namespace Zmy.Solitaire
 
                             MoveFinishedCard(c, i, out isShowNext);
 
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
+
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
 
@@ -481,6 +537,9 @@ namespace Zmy.Solitaire
                             SolitaireStack<Card> ts = c.CurContainer;
 
                             MoveFinishedCard(c, i, out isShowNext);
+
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
@@ -508,6 +567,9 @@ namespace Zmy.Solitaire
 
                             MoveFinishedCard(c, i, out isShowNext);
 
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
+
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
 
@@ -520,6 +582,9 @@ namespace Zmy.Solitaire
                             SolitaireStack<Card> ts = c.CurContainer;
 
                             MoveFinishedCard(c, i, out isShowNext);
+
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
@@ -534,6 +599,9 @@ namespace Zmy.Solitaire
 
                             MoveFinishedCard(c, i, out isShowNext);
 
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
+
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
 
@@ -546,6 +614,9 @@ namespace Zmy.Solitaire
                             SolitaireStack<Card> ts = c.CurContainer;
 
                             MoveFinishedCard(c, i, out isShowNext);
+
+                            if (switchNumber == SwitchNumber.Three && ts == stackRandomShowCard && stackRandomShowCard.Count >= 3)
+                                PushLeft();
 
                             PlayerStep ps = new PlayerStep(c, null, ts, stackFinishedCard[i], isShowNext);
                             step.Push(ps);
@@ -596,6 +667,7 @@ namespace Zmy.Solitaire
                 }
                 PlayerStep ps = new PlayerStep(null, li, stackRandomShowCard, stackRandomCard, false);
                 step.Push(ps);
+                
                 WatchFormLoad();
             }
         }
@@ -679,6 +751,25 @@ namespace Zmy.Solitaire
                     ps.DragCard.IsShow = false;
                     ps.DragCard.BringToFront();
                 }
+                else
+                {
+                    for(int i = ps.DragCards.Count - 1; i >= 0 ; i--)
+                    {
+                        Card c = ps.DragCards[i];
+                        c.CurContainer.Pop();
+                        ps.DragCardStack.Push(c);
+                        c.CurContainer = ps.DragCardStack;
+                        c.Location = LocatePoint(panelRandomCard);
+                        c.IsShow = false;
+                        c.BringToFront();
+                    }
+                    if (ps.DestinationStack.Count > 0)
+                    {
+                        Card[] t = ps.DestinationStack.ToArray();
+                        t[0].Location = new Point(t[0].Location.X + 24 * 2, t[0].Location.Y);
+                        t[1].Location = new Point(t[1].Location.X + 24, t[1].Location.Y);
+                    }
+                }
             }
             else if(ps.DestinationStack.ToString() == "Random")
             {
@@ -695,6 +786,16 @@ namespace Zmy.Solitaire
                         c.IsShow = true;
                         c.BringToFront();
                     }
+                    if(switchNumber == SwitchNumber.Three)
+                    {
+                        ps.DragCards[ps.DragCards.Count - 1].Location = 
+                            new Point(ps.DragCards[ps.DragCards.Count - 1].Location.X + 2 * leftLength, 
+                            ps.DragCards[ps.DragCards.Count - 1].Location.Y);
+                        ps.DragCards[ps.DragCards.Count - 2].Location =
+                            new Point(ps.DragCards[ps.DragCards.Count - 2].Location.X + leftLength,
+                            ps.DragCards[ps.DragCards.Count - 2].Location.Y);
+                    }
+                    
                 }
             }
             else if (ps.DestinationStack.ToString()[0] == 'F')
@@ -710,7 +811,33 @@ namespace Zmy.Solitaire
                     ps.DragCardStack.Push(ps.DragCard);
                     if(ps.DragCardStack.ToString() == "RandomShow")
                     {
-                        ps.DragCard.Location = LocatePoint(panelOpenRandomCard);
+                        if(switchNumber == SwitchNumber.One)
+                            ps.DragCard.Location = LocatePoint(panelOpenRandomCard);
+                        else
+                        {
+                            if(ps.DragCardStack.Count > 3)
+                            {
+                                Card[] t = ps.DragCardStack.ToArray();
+                                t[2].Location = new Point(t[2].Location.X - leftLength, t[2].Location.Y);
+                                t[1].Location = new Point(t[1].Location.X - leftLength, t[1].Location.Y);
+                                ps.DragCard.Location = LocatePoint(panelOpenRandomCard);
+                                ps.DragCard.Location = new Point(ps.DragCard.Location.X + 2 * leftLength, ps.DragCard.Location.Y);
+                            }
+                            else if(ps.DragCardStack.Count == 3)
+                            {
+                                ps.DragCard.Location = LocatePoint(panelOpenRandomCard);
+                                ps.DragCard.Location = new Point(ps.DragCard.Location.X + 2 * leftLength, ps.DragCard.Location.Y);
+                            }
+                            else if (ps.DragCardStack.Count == 2)
+                            {
+                                ps.DragCard.Location = LocatePoint(panelOpenRandomCard);
+                                ps.DragCard.Location = new Point(ps.DragCard.Location.X + leftLength, ps.DragCard.Location.Y);
+                            }
+                            else
+                            {
+                                ps.DragCard.Location = LocatePoint(panelOpenRandomCard);
+                            }
+                        }
                     }
                     else
                     {
@@ -734,9 +861,39 @@ namespace Zmy.Solitaire
                         c.CurContainer.Pop();
                         ps.DragCardStack.Push(c);
                         c.CurContainer = ps.DragCardStack;
-                        if(ps.DragCardStack.ToString()[0] == 'F' || ps.DragCardStack.ToString() == "RandomShow")
+                        if(ps.DragCardStack.ToString()[0] == 'F' )
                         {
                             c.Location = LocatePoint(ps.DragCardStack.FormPanel);
+                        }
+                        else if(ps.DragCardStack.ToString() == "RandomShow")
+                        {
+                            if (switchNumber == SwitchNumber.One)
+                                c.Location = LocatePoint(panelOpenRandomCard);
+                            else
+                            {
+                                if (ps.DragCardStack.Count > 3)
+                                {
+                                    Card[] t = ps.DragCardStack.ToArray();
+                                    t[2].Location = new Point(t[2].Location.X - leftLength, t[2].Location.Y);
+                                    t[1].Location = new Point(t[1].Location.X - leftLength, t[1].Location.Y);
+                                    c.Location = LocatePoint(panelOpenRandomCard);
+                                    c.Location = new Point(c.Location.X + 2 * leftLength, c.Location.Y);
+                                }
+                                else if (ps.DragCardStack.Count == 3)
+                                {
+                                    c.Location = LocatePoint(panelOpenRandomCard);
+                                    c.Location = new Point(c.Location.X + 2 * leftLength, c.Location.Y);
+                                }
+                                else if (ps.DragCardStack.Count == 2)
+                                {
+                                    c.Location = LocatePoint(panelOpenRandomCard);
+                                    c.Location = new Point(c.Location.X + leftLength, c.Location.Y);
+                                }
+                                else
+                                {
+                                    c.Location = LocatePoint(panelOpenRandomCard);
+                                }
+                            }
                         }
                         else
                         {
@@ -808,6 +965,13 @@ namespace Zmy.Solitaire
         {
             DialogResult = DialogResult.Cancel;
             wf.Close();
+        }
+
+        private void PushLeft()
+        {
+            Card[] tt = stackRandomShowCard.ToArray();
+            tt[0].Location = new Point(tt[0].Location.X + leftLength, tt[0].Location.Y);
+            tt[1].Location = new Point(tt[1].Location.X + leftLength, tt[1].Location.Y);
         }
     }
 }

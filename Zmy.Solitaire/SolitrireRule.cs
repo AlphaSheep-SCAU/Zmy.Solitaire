@@ -132,7 +132,7 @@ namespace Zmy.Solitaire
             bool flag = true;
             for(int i = 0; i < cardList.Count - 1; i++)
             {
-                if(cardList[i + 1].CardNumber - cardList[i].CardNumber != 1)
+                if (cardList[i + 1].CardNumber - cardList[i].CardNumber != 1 || cardList[i + 1].CardColor == cardList[i].CardColor) 
                 {
                     flag = false;
                     break;

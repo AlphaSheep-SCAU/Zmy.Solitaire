@@ -18,6 +18,8 @@ namespace Zmy.Solitaire
         public Stack<Card> stackRandomShowCard;
         public Stack<Card>[] stackFinishedCard;
         public Stack<PlayerStep> stackPlayerStep;
+        public int count { get; set; }
+
 
         public WatchForm()
         {
@@ -142,6 +144,7 @@ namespace Zmy.Solitaire
             {
                 textBox14.Text += stackPlayerStep.Pop().ToString();
             }
+            textBox15.Text = count.ToString();
         }
     }
 }

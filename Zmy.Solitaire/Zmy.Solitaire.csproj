@@ -63,6 +63,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RotateLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="RotateLabel.Designer.cs">
+      <DependentUpon>RotateLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Solitaire.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RotateLabel.resx">
+      <DependentUpon>RotateLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Solitaire.resx">
       <DependentUpon>Solitaire.cs</DependentUpon>
@@ -133,21 +142,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\background.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\spade_96px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\club_64px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\diamond_64px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\spade_64px.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="images\heart_64px.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="images\background2.png" />
@@ -211,6 +205,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\choose.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\clubJack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\clubKing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\clubQueen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\diamondJack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\diamondKing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\diamondQueen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\heartJack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\heartKing.PNG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\heartQueen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\spadeJack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\spadeKing.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="images\spadeQueen.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -183,6 +183,36 @@ namespace Zmy.Solitaire.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap clubJack {
+            get {
+                object obj = ResourceManager.GetObject("clubJack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap clubKing {
+            get {
+                object obj = ResourceManager.GetObject("clubKing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap clubQueen {
+            get {
+                object obj = ResourceManager.GetObject("clubQueen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap diamond_24px {
             get {
                 object obj = ResourceManager.GetObject("diamond_24px", resourceCulture);
@@ -196,6 +226,36 @@ namespace Zmy.Solitaire.Properties {
         internal static System.Drawing.Bitmap diamond_48px {
             get {
                 object obj = ResourceManager.GetObject("diamond_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap diamondJack {
+            get {
+                object obj = ResourceManager.GetObject("diamondJack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap diamondKing {
+            get {
+                object obj = ResourceManager.GetObject("diamondKing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap diamondQueen {
+            get {
+                object obj = ResourceManager.GetObject("diamondQueen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,6 +333,36 @@ namespace Zmy.Solitaire.Properties {
         /// <summary>
         ///   查找 System.Drawing.Bitmap 类型的本地化资源。
         /// </summary>
+        internal static System.Drawing.Bitmap heartJack {
+            get {
+                object obj = ResourceManager.GetObject("heartJack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap heartKing {
+            get {
+                object obj = ResourceManager.GetObject("heartKing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap heartQueen {
+            get {
+                object obj = ResourceManager.GetObject("heartQueen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
         internal static System.Drawing.Bitmap reset_card {
             get {
                 object obj = ResourceManager.GetObject("reset_card", resourceCulture);
@@ -306,6 +396,36 @@ namespace Zmy.Solitaire.Properties {
         internal static System.Drawing.Bitmap spade_48px {
             get {
                 object obj = ResourceManager.GetObject("spade_48px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap spadeJack {
+            get {
+                object obj = ResourceManager.GetObject("spadeJack", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap spadeKing {
+            get {
+                object obj = ResourceManager.GetObject("spadeKing", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap spadeQueen {
+            get {
+                object obj = ResourceManager.GetObject("spadeQueen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

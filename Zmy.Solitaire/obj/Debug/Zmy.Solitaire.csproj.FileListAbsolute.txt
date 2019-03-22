@@ -13,7 +13,6 @@ I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.e
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.pdb
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.exe
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\bin\Debug\Zmy.Solitaire.pdb
-I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csprojResolveAssemblyReference.cache
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.customComponent.Card.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Properties.Resources.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csproj.GenerateResource.Cache
@@ -24,3 +23,5 @@ O:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.p
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.VictoryForm.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.FirstForm.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Solitaire.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.RotateLabel.resources
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csprojResolveAssemblyReference.cache

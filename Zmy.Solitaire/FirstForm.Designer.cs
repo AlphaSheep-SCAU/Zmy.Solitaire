@@ -33,68 +33,68 @@
             this.panelRFill = new System.Windows.Forms.Panel();
             this.panelLFill = new System.Windows.Forms.Panel();
             this.panelTitle = new System.Windows.Forms.Panel();
+            this.buttonExit = new System.Windows.Forms.Button();
+            this.labelTitle = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             this.panelLeftFill = new System.Windows.Forms.Panel();
             this.panelRightFill = new System.Windows.Forms.Panel();
             this.panelMain = new System.Windows.Forms.Panel();
             this.panelMainButtom = new System.Windows.Forms.Panel();
-            this.panelMainRFlii = new System.Windows.Forms.Panel();
-            this.panelMainLFill = new System.Windows.Forms.Panel();
-            this.panelMainTFill = new System.Windows.Forms.Panel();
-            this.labelTitle = new System.Windows.Forms.Label();
-            this.buttonExit = new System.Windows.Forms.Button();
             this.buttonStartGame = new System.Windows.Forms.Button();
             this.panelMainMiddle = new System.Windows.Forms.Panel();
             this.panelDifficulty = new System.Windows.Forms.Panel();
             this.panelRandom = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.panelSplit4 = new System.Windows.Forms.Panel();
             this.panelDifficult = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panelSplit3 = new System.Windows.Forms.Panel();
             this.panelMedium = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panelSpilt2 = new System.Windows.Forms.Panel();
             this.panelEasy = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelLine = new System.Windows.Forms.Panel();
             this.panelSwitch = new System.Windows.Forms.Panel();
             this.panelSplit1 = new System.Windows.Forms.Panel();
             this.panelSwitchThree = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panelSwitchOne = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelLabelChoose = new System.Windows.Forms.Panel();
             this.labelChoose = new System.Windows.Forms.Label();
             this.panelMainMiddleFill2 = new System.Windows.Forms.Panel();
             this.panelMainMiddleFill1 = new System.Windows.Forms.Panel();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panelMainRFlii = new System.Windows.Forms.Panel();
+            this.panelMainLFill = new System.Windows.Forms.Panel();
+            this.panelMainTFill = new System.Windows.Forms.Panel();
             this.panelTop.SuspendLayout();
             this.panelTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panelMain.SuspendLayout();
             this.panelMainButtom.SuspendLayout();
             this.panelMainMiddle.SuspendLayout();
             this.panelDifficulty.SuspendLayout();
             this.panelRandom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.panelDifficult.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panelMedium.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelEasy.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelSwitch.SuspendLayout();
             this.panelSwitchThree.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelSwitchOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelLabelChoose.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.SuspendLayout();
             // 
             // panelTop
@@ -147,92 +147,9 @@
             this.panelTitle.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.panelTitle.Location = new System.Drawing.Point(0, 20);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(475, 51);
+            this.panelTitle.Size = new System.Drawing.Size(475, 50);
             this.panelTitle.TabIndex = 1;
             this.panelTitle.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitle_Paint);
-            // 
-            // panelLeftFill
-            // 
-            this.panelLeftFill.BackColor = System.Drawing.Color.Transparent;
-            this.panelLeftFill.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftFill.Location = new System.Drawing.Point(0, 71);
-            this.panelLeftFill.Name = "panelLeftFill";
-            this.panelLeftFill.Size = new System.Drawing.Size(20, 524);
-            this.panelLeftFill.TabIndex = 2;
-            this.panelLeftFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftFill_Paint);
-            // 
-            // panelRightFill
-            // 
-            this.panelRightFill.BackColor = System.Drawing.Color.Transparent;
-            this.panelRightFill.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightFill.Location = new System.Drawing.Point(455, 71);
-            this.panelRightFill.Name = "panelRightFill";
-            this.panelRightFill.Size = new System.Drawing.Size(20, 524);
-            this.panelRightFill.TabIndex = 3;
-            this.panelRightFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRightFill_Paint);
-            // 
-            // panelMain
-            // 
-            this.panelMain.BackColor = System.Drawing.SystemColors.Control;
-            this.panelMain.Controls.Add(this.panelMainButtom);
-            this.panelMain.Controls.Add(this.panelMainMiddle);
-            this.panelMain.Controls.Add(this.panelMainRFlii);
-            this.panelMain.Controls.Add(this.panelMainLFill);
-            this.panelMain.Controls.Add(this.panelMainTFill);
-            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(20, 71);
-            this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(435, 524);
-            this.panelMain.TabIndex = 4;
-            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
-            // 
-            // panelMainButtom
-            // 
-            this.panelMainButtom.BackColor = System.Drawing.Color.Transparent;
-            this.panelMainButtom.Controls.Add(this.buttonStartGame);
-            this.panelMainButtom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainButtom.Location = new System.Drawing.Point(20, 422);
-            this.panelMainButtom.Name = "panelMainButtom";
-            this.panelMainButtom.Size = new System.Drawing.Size(395, 102);
-            this.panelMainButtom.TabIndex = 4;
-            // 
-            // panelMainRFlii
-            // 
-            this.panelMainRFlii.BackColor = System.Drawing.Color.Transparent;
-            this.panelMainRFlii.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMainRFlii.Location = new System.Drawing.Point(415, 25);
-            this.panelMainRFlii.Name = "panelMainRFlii";
-            this.panelMainRFlii.Size = new System.Drawing.Size(20, 499);
-            this.panelMainRFlii.TabIndex = 2;
-            // 
-            // panelMainLFill
-            // 
-            this.panelMainLFill.BackColor = System.Drawing.Color.Transparent;
-            this.panelMainLFill.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMainLFill.Location = new System.Drawing.Point(0, 25);
-            this.panelMainLFill.Name = "panelMainLFill";
-            this.panelMainLFill.Size = new System.Drawing.Size(20, 499);
-            this.panelMainLFill.TabIndex = 1;
-            // 
-            // panelMainTFill
-            // 
-            this.panelMainTFill.BackColor = System.Drawing.Color.Transparent;
-            this.panelMainTFill.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMainTFill.Location = new System.Drawing.Point(0, 0);
-            this.panelMainTFill.Name = "panelMainTFill";
-            this.panelMainTFill.Size = new System.Drawing.Size(435, 25);
-            this.panelMainTFill.TabIndex = 0;
-            // 
-            // labelTitle
-            // 
-            this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(58, 16);
-            this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(51, 20);
-            this.labelTitle.TabIndex = 1;
-            this.labelTitle.Text = "纸牌";
             // 
             // buttonExit
             // 
@@ -247,6 +164,72 @@
             this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             this.buttonExit.MouseEnter += new System.EventHandler(this.buttonExit_MouseEnter);
             this.buttonExit.MouseLeave += new System.EventHandler(this.buttonExit_MouseLeave);
+            // 
+            // labelTitle
+            // 
+            this.labelTitle.AutoSize = true;
+            this.labelTitle.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelTitle.ForeColor = System.Drawing.Color.White;
+            this.labelTitle.Location = new System.Drawing.Point(58, 16);
+            this.labelTitle.Name = "labelTitle";
+            this.labelTitle.Size = new System.Drawing.Size(51, 20);
+            this.labelTitle.TabIndex = 1;
+            this.labelTitle.Text = "纸牌";
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.solitaire_128px_logo;
+            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBoxLogo.Location = new System.Drawing.Point(20, 9);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(32, 32);
+            this.pictureBoxLogo.TabIndex = 0;
+            this.pictureBoxLogo.TabStop = false;
+            // 
+            // panelLeftFill
+            // 
+            this.panelLeftFill.BackColor = System.Drawing.Color.Transparent;
+            this.panelLeftFill.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelLeftFill.Location = new System.Drawing.Point(0, 70);
+            this.panelLeftFill.Name = "panelLeftFill";
+            this.panelLeftFill.Size = new System.Drawing.Size(20, 525);
+            this.panelLeftFill.TabIndex = 2;
+            this.panelLeftFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftFill_Paint);
+            // 
+            // panelRightFill
+            // 
+            this.panelRightFill.BackColor = System.Drawing.Color.Transparent;
+            this.panelRightFill.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelRightFill.Location = new System.Drawing.Point(455, 70);
+            this.panelRightFill.Name = "panelRightFill";
+            this.panelRightFill.Size = new System.Drawing.Size(20, 525);
+            this.panelRightFill.TabIndex = 3;
+            this.panelRightFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRightFill_Paint);
+            // 
+            // panelMain
+            // 
+            this.panelMain.BackColor = System.Drawing.SystemColors.Control;
+            this.panelMain.Controls.Add(this.panelMainButtom);
+            this.panelMain.Controls.Add(this.panelMainMiddle);
+            this.panelMain.Controls.Add(this.panelMainRFlii);
+            this.panelMain.Controls.Add(this.panelMainLFill);
+            this.panelMain.Controls.Add(this.panelMainTFill);
+            this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMain.Location = new System.Drawing.Point(20, 70);
+            this.panelMain.Name = "panelMain";
+            this.panelMain.Size = new System.Drawing.Size(435, 525);
+            this.panelMain.TabIndex = 4;
+            this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
+            // 
+            // panelMainButtom
+            // 
+            this.panelMainButtom.BackColor = System.Drawing.Color.Transparent;
+            this.panelMainButtom.Controls.Add(this.buttonStartGame);
+            this.panelMainButtom.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMainButtom.Location = new System.Drawing.Point(20, 422);
+            this.panelMainButtom.Name = "panelMainButtom";
+            this.panelMainButtom.Size = new System.Drawing.Size(395, 103);
+            this.panelMainButtom.TabIndex = 4;
             // 
             // buttonStartGame
             // 
@@ -318,6 +301,27 @@
             this.panelRandom.MouseEnter += new System.EventHandler(this.panel_MouseEnter);
             this.panelRandom.MouseLeave += new System.EventHandler(this.panel_MouseLeave);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(56, 14);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(60, 24);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "随机";
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
+            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox6.Location = new System.Drawing.Point(9, 10);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox6.TabIndex = 2;
+            this.pictureBox6.TabStop = false;
+            // 
             // panelSplit4
             // 
             this.panelSplit4.Dock = System.Windows.Forms.DockStyle.Top;
@@ -340,6 +344,27 @@
             this.panelDifficult.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelDifficult_MouseClick);
             this.panelDifficult.MouseEnter += new System.EventHandler(this.panel_MouseEnter);
             this.panelDifficult.MouseLeave += new System.EventHandler(this.panel_MouseLeave);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(56, 15);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(60, 24);
+            this.label5.TabIndex = 5;
+            this.label5.Text = "困难";
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
+            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox5.Location = new System.Drawing.Point(9, 10);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox5.TabIndex = 2;
+            this.pictureBox5.TabStop = false;
             // 
             // panelSplit3
             // 
@@ -364,6 +389,27 @@
             this.panelMedium.MouseEnter += new System.EventHandler(this.panel_MouseEnter);
             this.panelMedium.MouseLeave += new System.EventHandler(this.panel_MouseLeave);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(56, 15);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 24);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "中等";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
+            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox4.Location = new System.Drawing.Point(9, 10);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.TabIndex = 2;
+            this.pictureBox4.TabStop = false;
+            // 
             // panelSpilt2
             // 
             this.panelSpilt2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -386,6 +432,27 @@
             this.panelEasy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panelDifficult_MouseClick);
             this.panelEasy.MouseEnter += new System.EventHandler(this.panel_MouseEnter);
             this.panelEasy.MouseLeave += new System.EventHandler(this.panel_MouseLeave);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(56, 14);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(60, 24);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "简单";
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.choose;
+            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox3.Location = new System.Drawing.Point(9, 10);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.TabIndex = 2;
+            this.pictureBox3.TabStop = false;
             // 
             // panelLine
             // 
@@ -430,6 +497,27 @@
             this.panelSwitchThree.MouseEnter += new System.EventHandler(this.panel_MouseEnter);
             this.panelSwitchThree.MouseLeave += new System.EventHandler(this.panel_MouseLeave);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(56, 14);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 24);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "翻三张";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
+            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pictureBox2.Location = new System.Drawing.Point(9, 9);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.TabIndex = 1;
+            this.pictureBox2.TabStop = false;
+            // 
             // panelSwitchOne
             // 
             this.panelSwitchOne.BackColor = System.Drawing.Color.White;
@@ -444,6 +532,17 @@
             this.panelSwitchOne.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel_MouseClick);
             this.panelSwitchOne.MouseEnter += new System.EventHandler(this.panel_MouseEnter);
             this.panelSwitchOne.MouseLeave += new System.EventHandler(this.panel_MouseLeave);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(56, 14);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 24);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "翻一张";
             // 
             // pictureBox1
             // 
@@ -492,131 +591,32 @@
             this.panelMainMiddleFill1.Size = new System.Drawing.Size(24, 397);
             this.panelMainMiddleFill1.TabIndex = 0;
             // 
-            // pictureBoxLogo
+            // panelMainRFlii
             // 
-            this.pictureBoxLogo.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.solitaire_128px_logo;
-            this.pictureBoxLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBoxLogo.Location = new System.Drawing.Point(20, 9);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(32, 32);
-            this.pictureBoxLogo.TabIndex = 0;
-            this.pictureBoxLogo.TabStop = false;
+            this.panelMainRFlii.BackColor = System.Drawing.Color.Transparent;
+            this.panelMainRFlii.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelMainRFlii.Location = new System.Drawing.Point(415, 25);
+            this.panelMainRFlii.Name = "panelMainRFlii";
+            this.panelMainRFlii.Size = new System.Drawing.Size(20, 500);
+            this.panelMainRFlii.TabIndex = 2;
             // 
-            // pictureBox2
+            // panelMainLFill
             // 
-            this.pictureBox2.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(9, 9);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.TabIndex = 1;
-            this.pictureBox2.TabStop = false;
+            this.panelMainLFill.BackColor = System.Drawing.Color.Transparent;
+            this.panelMainLFill.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelMainLFill.Location = new System.Drawing.Point(0, 25);
+            this.panelMainLFill.Name = "panelMainLFill";
+            this.panelMainLFill.Size = new System.Drawing.Size(20, 500);
+            this.panelMainLFill.TabIndex = 1;
             // 
-            // pictureBox3
+            // panelMainTFill
             // 
-            this.pictureBox3.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.choose;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(9, 10);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox3.TabIndex = 2;
-            this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(9, 10);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox4.TabIndex = 2;
-            this.pictureBox4.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
-            this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox5.Location = new System.Drawing.Point(9, 10);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox5.TabIndex = 2;
-            this.pictureBox5.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            this.pictureBox6.BackgroundImage = global::Zmy.Solitaire.Properties.Resources.unchoose;
-            this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox6.Location = new System.Drawing.Point(9, 10);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox6.TabIndex = 2;
-            this.pictureBox6.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(56, 14);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 24);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "翻一张";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(56, 14);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "翻三张";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(56, 14);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(60, 24);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "简单";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(56, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 24);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "中等";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(56, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 24);
-            this.label5.TabIndex = 5;
-            this.label5.Text = "困难";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("黑体", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(56, 14);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(60, 24);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "随机";
+            this.panelMainTFill.BackColor = System.Drawing.Color.Transparent;
+            this.panelMainTFill.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelMainTFill.Location = new System.Drawing.Point(0, 0);
+            this.panelMainTFill.Name = "panelMainTFill";
+            this.panelMainTFill.Size = new System.Drawing.Size(435, 25);
+            this.panelMainTFill.TabIndex = 0;
             // 
             // FirstForm
             // 
@@ -639,32 +639,32 @@
             this.panelTop.ResumeLayout(false);
             this.panelTitle.ResumeLayout(false);
             this.panelTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.panelMain.ResumeLayout(false);
             this.panelMainButtom.ResumeLayout(false);
             this.panelMainMiddle.ResumeLayout(false);
             this.panelDifficulty.ResumeLayout(false);
             this.panelRandom.ResumeLayout(false);
             this.panelRandom.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.panelDifficult.ResumeLayout(false);
             this.panelDifficult.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panelMedium.ResumeLayout(false);
             this.panelMedium.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelEasy.ResumeLayout(false);
             this.panelEasy.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelSwitch.ResumeLayout(false);
             this.panelSwitchThree.ResumeLayout(false);
             this.panelSwitchThree.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelSwitchOne.ResumeLayout(false);
             this.panelSwitchOne.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelLabelChoose.ResumeLayout(false);
             this.panelLabelChoose.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.ResumeLayout(false);
 
         }
