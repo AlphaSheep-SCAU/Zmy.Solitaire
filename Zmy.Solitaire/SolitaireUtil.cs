@@ -11,7 +11,7 @@ using Zmy.Solitaire.customComponent;
 
 namespace Zmy.Solitaire
 {
-    class SolitrireUtil
+    class SolitaireUtil
     {
         /// <summary>
         /// 判断卡牌与容器是否相交
@@ -100,11 +100,11 @@ namespace Zmy.Solitaire
         /// </summary>
         /// <param name="Mouse_Up_Card">鼠标施放事件</param>
         /// <returns></returns>
-        public static Card[] ReadXml(MouseEventHandler Mouse_Up_Card)
+        public static Card[] ReadXml(string src, MouseEventHandler Mouse_Up_Card)
         {
             Card[] listCard = new Card[52];
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"../../testshuffle/test.xml");
+            doc.Load(src);
             XmlNode root = doc.SelectSingleNode("solitaire");
 
             listCard = ReadXmlCard(root, listCard, "middle1");
@@ -226,14 +226,14 @@ namespace Zmy.Solitaire
         /// 保存牌局
         /// </summary>
         /// <param name="listCard"></param>
-        public static void SaveGameXML(Card[] listCard)
+        public static void SaveGameXML(Card[] listCard, string name)
         {
-            XmlTextWriter xtw = new XmlTextWriter(@"../../testshuffle/" + DateTime.Now.ToLongDateString().Replace("/","") + ".xml", null);
+            XmlTextWriter xtw = new XmlTextWriter(@"../../save/" + name + ".xml", null);
             xtw.Formatting = Formatting.Indented;
             xtw.WriteStartDocument();
             xtw.WriteStartElement("solitaire");
             xtw.WriteStartElement("random");
-            for(int i = 51; i >= 28; i--)
+            for(int i = 28; i < 52; i++)
             {
                 xtw.WriteElementString("card", GetWhichCode(listCard[i]));
             }

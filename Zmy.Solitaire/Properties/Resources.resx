@@ -172,7 +172,7 @@
   <data name="winform_backgournd" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\winform_backgournd.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="3-40-71background" type="System.Resources.ResXFileRef, System.Windows.Forms">
+  <data name="_3-40-71background" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\images\3-40-71background.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="club_48px" type="System.Resources.ResXFileRef, System.Windows.Forms">

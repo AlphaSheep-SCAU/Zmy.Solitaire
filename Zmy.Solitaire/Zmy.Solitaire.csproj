@@ -58,16 +58,16 @@
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PlayerStep.cs" />
+    <Compile Include="customComponent\RotateLabel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="customComponent\RotateLabel.Designer.cs">
+      <DependentUpon>RotateLabel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="RotateLabel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="RotateLabel.Designer.cs">
-      <DependentUpon>RotateLabel.cs</DependentUpon>
     </Compile>
     <Compile Include="Solitaire.cs">
       <SubType>Form</SubType>
@@ -77,8 +77,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SolitrireRule.cs" />
-    <Compile Include="SolitrireUtil.cs" />
+    <Compile Include="SolitaireTips.cs" />
+    <Compile Include="SolitaireRule.cs" />
+    <Compile Include="SolitaireUtil.cs" />
     <Compile Include="SolitaireStack.cs" />
     <Compile Include="VictoryForm.cs">
       <SubType>Form</SubType>
@@ -98,7 +99,7 @@
     <EmbeddedResource Include="FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="RotateLabel.resx">
+    <EmbeddedResource Include="customComponent\RotateLabel.resx">
       <DependentUpon>RotateLabel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Solitaire.resx">
@@ -241,6 +242,42 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="images\spadeQueen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="difficulty\demo.xml" />
+    <Content Include="difficulty\switchone\difficult\1.xml" />
+    <Content Include="difficulty\switchone\difficult\2.xml" />
+    <Content Include="difficulty\switchone\difficult\3.xml" />
+    <Content Include="difficulty\switchone\difficult\4.xml" />
+    <Content Include="difficulty\switchone\difficult\5.xml" />
+    <Content Include="difficulty\switchone\easy\1.xml" />
+    <Content Include="difficulty\switchone\easy\2.xml" />
+    <Content Include="difficulty\switchone\easy\3.xml" />
+    <Content Include="difficulty\switchone\easy\4.xml" />
+    <Content Include="difficulty\switchone\easy\5.xml" />
+    <Content Include="difficulty\switchone\medium\1.xml" />
+    <Content Include="difficulty\switchone\medium\2.xml" />
+    <Content Include="difficulty\switchone\medium\3.xml" />
+    <Content Include="difficulty\switchone\medium\4.xml" />
+    <Content Include="difficulty\switchone\medium\5.xml" />
+    <Content Include="difficulty\switchthree\difficult\1.xml" />
+    <Content Include="difficulty\switchthree\difficult\2.xml" />
+    <Content Include="difficulty\switchthree\difficult\3.xml" />
+    <Content Include="difficulty\switchthree\difficult\4.xml" />
+    <Content Include="difficulty\switchthree\difficult\5.xml" />
+    <Content Include="difficulty\switchthree\easy\1.xml" />
+    <Content Include="difficulty\switchthree\easy\2.xml" />
+    <Content Include="difficulty\switchthree\easy\3.xml" />
+    <Content Include="difficulty\switchthree\easy\4.xml" />
+    <Content Include="difficulty\switchthree\easy\5.xml" />
+    <Content Include="difficulty\switchthree\medium\1.xml" />
+    <Content Include="difficulty\switchthree\medium\2.xml" />
+    <Content Include="difficulty\switchthree\medium\3.xml" />
+    <Content Include="difficulty\switchthree\medium\4.xml" />
+    <Content Include="difficulty\switchthree\medium\5.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="save\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

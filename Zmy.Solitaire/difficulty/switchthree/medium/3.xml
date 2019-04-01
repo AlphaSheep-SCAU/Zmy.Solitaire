@@ -1,71 +1,71 @@
 <?xml version="1.0"?>
 <solitaire>
   <random>
-    <card>SJ</card>
-    <card>S3</card>
-    <card>C7</card>
-    <card>H7</card>
-    <card>D2</card>
-    <card>S9</card>
-    <card>H6</card>
-    <card>D6</card>
-    <card>CQ</card>
-    <card>DJ</card>
-    <card>H3</card>
-    <card>H5</card>
-    <card>C9</card>
-    <card>SK</card>
-    <card>H4</card>
-    <card>S5</card>
-    <card>HQ</card>
-    <card>H10</card>
-    <card>SA</card>
-    <card>S10</card>
-    <card>S7</card>
     <card>C4</card>
-    <card>D10</card>
+    <card>S6</card>
+    <card>S10</card>
+    <card>C6</card>
+    <card>S8</card>
+    <card>H4</card>
+    <card>S9</card>
+    <card>C7</card>
+    <card>S3</card>
+    <card>C3</card>
+    <card>HK</card>
+    <card>D8</card>
+    <card>C9</card>
+    <card>S7</card>
+    <card>SA</card>
+    <card>D6</card>
+    <card>D4</card>
+    <card>CJ</card>
+    <card>CK</card>
+    <card>H10</card>
+    <card>H7</card>
     <card>D5</card>
+    <card>H5</card>
+    <card>D2</card>
   </random>
   <middle1>
-    <card>C8</card>
+    <card>D10</card>
   </middle1>
   <middle2>
-    <card>C3</card>
-    <card>S8</card>
+    <card>H8</card>
+    <card>C10</card>
   </middle2>
   <middle3>
-    <card>D7</card>
-    <card>H8</card>
-    <card>H2</card>
-  </middle3>
-  <middle4>
-    <card>HJ</card>
-    <card>DQ</card>
-    <card>CJ</card>
-    <card>C5</card>
-  </middle4>
-  <middle5>
-    <card>D8</card>
-    <card>D4</card>
-    <card>S2</card>
-    <card>HA</card>
-    <card>C6</card>
-  </middle5>
-  <middle6>
-    <card>HK</card>
-    <card>S6</card>
-    <card>CK</card>
-    <card>DK</card>
-    <card>DA</card>
-    <card>S9</card>
-  </middle6>
-  <middle7>
-    <card>D3</card>
-    <card>C10</card>
-    <card>C2</card>
-    <card>D9</card>
-    <card>CA</card>
     <card>SQ</card>
     <card>S4</card>
+    <card>CQ</card>
+  </middle3>
+  <middle4>
+    <card>SJ</card>
+    <card>S5</card>
+    <card>HQ</card>
+    <card>S2</card>
+  </middle4>
+  <middle5>
+    <card>D9</card>
+    <card>H2</card>
+    <card>D3</card>
+    <card>HA</card>
+    <card>C5</card>
+  </middle5>
+  <middle6>
+    <card>DA</card>
+    <card>C2</card>
+    <card>D7</card>
+    <card>DJ</card>
+    <card>CA</card>
+    <card>H3</card>
+  </middle6>
+  <middle7>
+    <card>SK</card>
+    <card>C8</card>
+    <card>HJ</card>
+    <card>H6</card>
+    <card>DQ</card>
+    <card>DK</card>
+    <card>H9</card>
   </middle7>
 </solitaire>

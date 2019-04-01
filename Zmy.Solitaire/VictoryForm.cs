@@ -13,6 +13,7 @@ namespace Zmy.Solitaire
     public partial class VictoryForm : Form
     {
         private Difficulty difficulty;
+        private SwitchNumber switchNumber;
         private string time;
 
         public VictoryForm()
@@ -20,9 +21,10 @@ namespace Zmy.Solitaire
             InitializeComponent();
         }
 
-        public VictoryForm(Difficulty difficulty, string time)
+        public VictoryForm(Difficulty difficulty, SwitchNumber switchNumber, string time)
         {
             this.difficulty = difficulty;
+            this.switchNumber = switchNumber;
             if(time.IndexOf(':') == 1)
                 this.time = "0" + time;
             else
@@ -36,12 +38,13 @@ namespace Zmy.Solitaire
             panelMFill.BackColor = Color.FromArgb(12, 57, 115);
             panelTitle.BackColor = Color.FromArgb(31, 180, 231);
             panelTime.BackColor = Color.FromArgb(26, 69, 106);
-            buttonNewGame.Location = SolitrireUtil.HorizontalVerticalCenter(buttonNewGame, panelMainButtom);
+            buttonNewGame.Location = SolitaireUtil.HorizontalVerticalCenter(buttonNewGame, panelMainButtom);
             labelWhatDifficulty.Text = 
                 difficulty == Difficulty.Difficult ? "困难" : 
                 difficulty == Difficulty.Medium ? "中等" : 
                 difficulty == Difficulty.Easy ? "简单" : "随机";
             labelWhatTime.Text = time;
+            labelWhatSwitchNumber.Text = switchNumber == SwitchNumber.One ? "翻一张" : "翻三张";
         }
 
         private void panelMFill_Paint(object sender, PaintEventArgs e)

@@ -42,11 +42,11 @@
             this.buttonNewGame = new System.Windows.Forms.Button();
             this.panelMainMiddle = new System.Windows.Forms.Panel();
             this.panelLeastTime = new System.Windows.Forms.Panel();
-            this.labelWhatLeastTime = new System.Windows.Forms.Label();
-            this.labelLeastTime = new System.Windows.Forms.Label();
-            this.panelTime = new System.Windows.Forms.Panel();
             this.labelWhatTime = new System.Windows.Forms.Label();
             this.labelTime = new System.Windows.Forms.Label();
+            this.panelTime = new System.Windows.Forms.Panel();
+            this.labelWhatSwitchNumber = new System.Windows.Forms.Label();
+            this.labelSwitchNumber = new System.Windows.Forms.Label();
             this.panelDifficulty = new System.Windows.Forms.Panel();
             this.labelWhatDifficulty = new System.Windows.Forms.Label();
             this.labelDifficulty = new System.Windows.Forms.Label();
@@ -71,17 +71,19 @@
             this.panelTop.Controls.Add(this.panelLFill);
             this.panelTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTop.Location = new System.Drawing.Point(0, 0);
+            this.panelTop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(475, 20);
+            this.panelTop.Size = new System.Drawing.Size(356, 16);
             this.panelTop.TabIndex = 1;
             // 
             // panelMFill
             // 
             this.panelMFill.BackColor = System.Drawing.SystemColors.Control;
             this.panelMFill.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMFill.Location = new System.Drawing.Point(20, 0);
+            this.panelMFill.Location = new System.Drawing.Point(15, 0);
+            this.panelMFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMFill.Name = "panelMFill";
-            this.panelMFill.Size = new System.Drawing.Size(435, 20);
+            this.panelMFill.Size = new System.Drawing.Size(326, 16);
             this.panelMFill.TabIndex = 2;
             this.panelMFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMFill_Paint);
             // 
@@ -89,9 +91,10 @@
             // 
             this.panelRFill.BackColor = System.Drawing.Color.Red;
             this.panelRFill.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRFill.Location = new System.Drawing.Point(455, 0);
+            this.panelRFill.Location = new System.Drawing.Point(341, 0);
+            this.panelRFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelRFill.Name = "panelRFill";
-            this.panelRFill.Size = new System.Drawing.Size(20, 20);
+            this.panelRFill.Size = new System.Drawing.Size(15, 16);
             this.panelRFill.TabIndex = 1;
             // 
             // panelLFill
@@ -99,8 +102,9 @@
             this.panelLFill.BackColor = System.Drawing.Color.Red;
             this.panelLFill.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelLFill.Location = new System.Drawing.Point(0, 0);
+            this.panelLFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelLFill.Name = "panelLFill";
-            this.panelLFill.Size = new System.Drawing.Size(20, 20);
+            this.panelLFill.Size = new System.Drawing.Size(15, 16);
             this.panelLFill.TabIndex = 0;
             // 
             // panelTitle
@@ -110,18 +114,20 @@
             this.panelTitle.Controls.Add(this.labelTitle);
             this.panelTitle.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitle.Font = new System.Drawing.Font("黑体", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.panelTitle.Location = new System.Drawing.Point(0, 20);
+            this.panelTitle.Location = new System.Drawing.Point(0, 16);
+            this.panelTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelTitle.Name = "panelTitle";
-            this.panelTitle.Size = new System.Drawing.Size(475, 50);
+            this.panelTitle.Size = new System.Drawing.Size(356, 40);
             this.panelTitle.TabIndex = 2;
             // 
             // buttonExit
             // 
             this.buttonExit.FlatAppearance.BorderSize = 0;
             this.buttonExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonExit.Location = new System.Drawing.Point(422, 9);
+            this.buttonExit.Location = new System.Drawing.Point(316, 7);
+            this.buttonExit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(32, 32);
+            this.buttonExit.Size = new System.Drawing.Size(24, 26);
             this.buttonExit.TabIndex = 2;
             this.buttonExit.Text = "×";
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -134,9 +140,10 @@
             this.labelTitle.AutoSize = true;
             this.labelTitle.Font = new System.Drawing.Font("幼圆", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelTitle.ForeColor = System.Drawing.Color.White;
-            this.labelTitle.Location = new System.Drawing.Point(58, 16);
+            this.labelTitle.Location = new System.Drawing.Point(44, 13);
+            this.labelTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(185, 20);
+            this.labelTitle.Size = new System.Drawing.Size(152, 16);
             this.labelTitle.TabIndex = 1;
             this.labelTitle.Text = "Congratulations!";
             // 
@@ -144,9 +151,10 @@
             // 
             this.panelRightFill.BackColor = System.Drawing.Color.Red;
             this.panelRightFill.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelRightFill.Location = new System.Drawing.Point(455, 70);
+            this.panelRightFill.Location = new System.Drawing.Point(341, 56);
+            this.panelRightFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelRightFill.Name = "panelRightFill";
-            this.panelRightFill.Size = new System.Drawing.Size(20, 371);
+            this.panelRightFill.Size = new System.Drawing.Size(15, 297);
             this.panelRightFill.TabIndex = 5;
             this.panelRightFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRightFill_Paint);
             // 
@@ -154,9 +162,10 @@
             // 
             this.panelLeftFill.BackColor = System.Drawing.Color.Red;
             this.panelLeftFill.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelLeftFill.Location = new System.Drawing.Point(0, 70);
+            this.panelLeftFill.Location = new System.Drawing.Point(0, 56);
+            this.panelLeftFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelLeftFill.Name = "panelLeftFill";
-            this.panelLeftFill.Size = new System.Drawing.Size(20, 371);
+            this.panelLeftFill.Size = new System.Drawing.Size(15, 297);
             this.panelLeftFill.TabIndex = 4;
             this.panelLeftFill.Paint += new System.Windows.Forms.PaintEventHandler(this.panelLeftFill_Paint);
             // 
@@ -169,9 +178,10 @@
             this.panelMain.Controls.Add(this.panelMainLFill);
             this.panelMain.Controls.Add(this.panelMainTFill);
             this.panelMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMain.Location = new System.Drawing.Point(20, 70);
+            this.panelMain.Location = new System.Drawing.Point(15, 56);
+            this.panelMain.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMain.Name = "panelMain";
-            this.panelMain.Size = new System.Drawing.Size(435, 371);
+            this.panelMain.Size = new System.Drawing.Size(326, 297);
             this.panelMain.TabIndex = 6;
             this.panelMain.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMain_Paint);
             // 
@@ -180,9 +190,10 @@
             this.panelMainButtom.BackColor = System.Drawing.Color.Transparent;
             this.panelMainButtom.Controls.Add(this.buttonNewGame);
             this.panelMainButtom.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelMainButtom.Location = new System.Drawing.Point(50, 268);
+            this.panelMainButtom.Location = new System.Drawing.Point(38, 214);
+            this.panelMainButtom.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMainButtom.Name = "panelMainButtom";
-            this.panelMainButtom.Size = new System.Drawing.Size(335, 103);
+            this.panelMainButtom.Size = new System.Drawing.Size(250, 83);
             this.panelMainButtom.TabIndex = 4;
             // 
             // buttonNewGame
@@ -196,9 +207,10 @@
             this.buttonNewGame.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonNewGame.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.buttonNewGame.ForeColor = System.Drawing.Color.White;
-            this.buttonNewGame.Location = new System.Drawing.Point(86, 28);
+            this.buttonNewGame.Location = new System.Drawing.Point(64, 22);
+            this.buttonNewGame.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonNewGame.Name = "buttonNewGame";
-            this.buttonNewGame.Size = new System.Drawing.Size(168, 50);
+            this.buttonNewGame.Size = new System.Drawing.Size(126, 40);
             this.buttonNewGame.TabIndex = 0;
             this.buttonNewGame.Text = "新游戏";
             this.buttonNewGame.UseVisualStyleBackColor = true;
@@ -217,75 +229,82 @@
             this.panelMainMiddle.Controls.Add(this.panelTime);
             this.panelMainMiddle.Controls.Add(this.panelDifficulty);
             this.panelMainMiddle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelMainMiddle.Location = new System.Drawing.Point(50, 25);
+            this.panelMainMiddle.Location = new System.Drawing.Point(38, 20);
+            this.panelMainMiddle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMainMiddle.Name = "panelMainMiddle";
-            this.panelMainMiddle.Size = new System.Drawing.Size(335, 243);
+            this.panelMainMiddle.Size = new System.Drawing.Size(250, 194);
             this.panelMainMiddle.TabIndex = 3;
             // 
             // panelLeastTime
             // 
-            this.panelLeastTime.Controls.Add(this.labelWhatLeastTime);
-            this.panelLeastTime.Controls.Add(this.labelLeastTime);
+            this.panelLeastTime.Controls.Add(this.labelWhatTime);
+            this.panelLeastTime.Controls.Add(this.labelTime);
             this.panelLeastTime.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelLeastTime.Location = new System.Drawing.Point(0, 162);
+            this.panelLeastTime.Location = new System.Drawing.Point(0, 130);
+            this.panelLeastTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelLeastTime.Name = "panelLeastTime";
-            this.panelLeastTime.Size = new System.Drawing.Size(335, 81);
+            this.panelLeastTime.Size = new System.Drawing.Size(250, 65);
             this.panelLeastTime.TabIndex = 4;
-            // 
-            // labelWhatLeastTime
-            // 
-            this.labelWhatLeastTime.AutoSize = true;
-            this.labelWhatLeastTime.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelWhatLeastTime.ForeColor = System.Drawing.Color.White;
-            this.labelWhatLeastTime.Location = new System.Drawing.Point(242, 25);
-            this.labelWhatLeastTime.Name = "labelWhatLeastTime";
-            this.labelWhatLeastTime.Size = new System.Drawing.Size(87, 28);
-            this.labelWhatLeastTime.TabIndex = 2;
-            this.labelWhatLeastTime.Text = "00:00";
-            this.labelWhatLeastTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // labelLeastTime
-            // 
-            this.labelLeastTime.AutoSize = true;
-            this.labelLeastTime.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelLeastTime.ForeColor = System.Drawing.Color.White;
-            this.labelLeastTime.Location = new System.Drawing.Point(11, 26);
-            this.labelLeastTime.Name = "labelLeastTime";
-            this.labelLeastTime.Size = new System.Drawing.Size(128, 28);
-            this.labelLeastTime.TabIndex = 1;
-            this.labelLeastTime.Text = "最短时间";
-            // 
-            // panelTime
-            // 
-            this.panelTime.Controls.Add(this.labelWhatTime);
-            this.panelTime.Controls.Add(this.labelTime);
-            this.panelTime.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTime.Location = new System.Drawing.Point(0, 81);
-            this.panelTime.Name = "panelTime";
-            this.panelTime.Size = new System.Drawing.Size(335, 81);
-            this.panelTime.TabIndex = 3;
             // 
             // labelWhatTime
             // 
             this.labelWhatTime.AutoSize = true;
             this.labelWhatTime.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelWhatTime.ForeColor = System.Drawing.Color.White;
-            this.labelWhatTime.Location = new System.Drawing.Point(242, 25);
+            this.labelWhatTime.Location = new System.Drawing.Point(182, 20);
+            this.labelWhatTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWhatTime.Name = "labelWhatTime";
-            this.labelWhatTime.Size = new System.Drawing.Size(87, 28);
+            this.labelWhatTime.Size = new System.Drawing.Size(70, 22);
             this.labelWhatTime.TabIndex = 2;
             this.labelWhatTime.Text = "00:00";
+            this.labelWhatTime.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // labelTime
             // 
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelTime.ForeColor = System.Drawing.Color.White;
-            this.labelTime.Location = new System.Drawing.Point(11, 25);
+            this.labelTime.Location = new System.Drawing.Point(8, 21);
+            this.labelTime.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelTime.Name = "labelTime";
-            this.labelTime.Size = new System.Drawing.Size(70, 28);
+            this.labelTime.Size = new System.Drawing.Size(56, 22);
             this.labelTime.TabIndex = 1;
             this.labelTime.Text = "时间";
+            // 
+            // panelTime
+            // 
+            this.panelTime.Controls.Add(this.labelWhatSwitchNumber);
+            this.panelTime.Controls.Add(this.labelSwitchNumber);
+            this.panelTime.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTime.Location = new System.Drawing.Point(0, 65);
+            this.panelTime.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelTime.Name = "panelTime";
+            this.panelTime.Size = new System.Drawing.Size(250, 65);
+            this.panelTime.TabIndex = 3;
+            // 
+            // labelWhatSwitchNumber
+            // 
+            this.labelWhatSwitchNumber.AutoSize = true;
+            this.labelWhatSwitchNumber.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelWhatSwitchNumber.ForeColor = System.Drawing.Color.White;
+            this.labelWhatSwitchNumber.Location = new System.Drawing.Point(176, 20);
+            this.labelWhatSwitchNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelWhatSwitchNumber.Name = "labelWhatSwitchNumber";
+            this.labelWhatSwitchNumber.Size = new System.Drawing.Size(79, 22);
+            this.labelWhatSwitchNumber.TabIndex = 2;
+            this.labelWhatSwitchNumber.Text = "翻一张";
+            // 
+            // labelSwitchNumber
+            // 
+            this.labelSwitchNumber.AutoSize = true;
+            this.labelSwitchNumber.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelSwitchNumber.ForeColor = System.Drawing.Color.White;
+            this.labelSwitchNumber.Location = new System.Drawing.Point(8, 20);
+            this.labelSwitchNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.labelSwitchNumber.Name = "labelSwitchNumber";
+            this.labelSwitchNumber.Size = new System.Drawing.Size(79, 22);
+            this.labelSwitchNumber.TabIndex = 1;
+            this.labelSwitchNumber.Text = "翻牌数";
             // 
             // panelDifficulty
             // 
@@ -293,8 +312,9 @@
             this.panelDifficulty.Controls.Add(this.labelDifficulty);
             this.panelDifficulty.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelDifficulty.Location = new System.Drawing.Point(0, 0);
+            this.panelDifficulty.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelDifficulty.Name = "panelDifficulty";
-            this.panelDifficulty.Size = new System.Drawing.Size(335, 81);
+            this.panelDifficulty.Size = new System.Drawing.Size(250, 65);
             this.panelDifficulty.TabIndex = 2;
             // 
             // labelWhatDifficulty
@@ -303,10 +323,11 @@
             this.labelWhatDifficulty.AutoSize = true;
             this.labelWhatDifficulty.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelWhatDifficulty.ForeColor = System.Drawing.Color.White;
-            this.labelWhatDifficulty.Location = new System.Drawing.Point(258, 27);
+            this.labelWhatDifficulty.Location = new System.Drawing.Point(193, 22);
+            this.labelWhatDifficulty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelWhatDifficulty.Name = "labelWhatDifficulty";
             this.labelWhatDifficulty.Padding = new System.Windows.Forms.Padding(1, 0, 0, 0);
-            this.labelWhatDifficulty.Size = new System.Drawing.Size(71, 28);
+            this.labelWhatDifficulty.Size = new System.Drawing.Size(57, 22);
             this.labelWhatDifficulty.TabIndex = 1;
             this.labelWhatDifficulty.Text = "随机";
             // 
@@ -315,9 +336,10 @@
             this.labelDifficulty.AutoSize = true;
             this.labelDifficulty.Font = new System.Drawing.Font("黑体", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.labelDifficulty.ForeColor = System.Drawing.Color.White;
-            this.labelDifficulty.Location = new System.Drawing.Point(11, 27);
+            this.labelDifficulty.Location = new System.Drawing.Point(8, 22);
+            this.labelDifficulty.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.labelDifficulty.Name = "labelDifficulty";
-            this.labelDifficulty.Size = new System.Drawing.Size(70, 28);
+            this.labelDifficulty.Size = new System.Drawing.Size(56, 22);
             this.labelDifficulty.TabIndex = 0;
             this.labelDifficulty.Text = "难度";
             // 
@@ -325,18 +347,20 @@
             // 
             this.panelMainRFlii.BackColor = System.Drawing.Color.Transparent;
             this.panelMainRFlii.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panelMainRFlii.Location = new System.Drawing.Point(385, 25);
+            this.panelMainRFlii.Location = new System.Drawing.Point(288, 20);
+            this.panelMainRFlii.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMainRFlii.Name = "panelMainRFlii";
-            this.panelMainRFlii.Size = new System.Drawing.Size(50, 346);
+            this.panelMainRFlii.Size = new System.Drawing.Size(38, 277);
             this.panelMainRFlii.TabIndex = 2;
             // 
             // panelMainLFill
             // 
             this.panelMainLFill.BackColor = System.Drawing.Color.Transparent;
             this.panelMainLFill.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelMainLFill.Location = new System.Drawing.Point(0, 25);
+            this.panelMainLFill.Location = new System.Drawing.Point(0, 20);
+            this.panelMainLFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMainLFill.Name = "panelMainLFill";
-            this.panelMainLFill.Size = new System.Drawing.Size(50, 346);
+            this.panelMainLFill.Size = new System.Drawing.Size(38, 277);
             this.panelMainLFill.TabIndex = 1;
             // 
             // panelMainTFill
@@ -344,16 +368,17 @@
             this.panelMainTFill.BackColor = System.Drawing.Color.Transparent;
             this.panelMainTFill.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelMainTFill.Location = new System.Drawing.Point(0, 0);
+            this.panelMainTFill.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panelMainTFill.Name = "panelMainTFill";
-            this.panelMainTFill.Size = new System.Drawing.Size(435, 25);
+            this.panelMainTFill.Size = new System.Drawing.Size(326, 20);
             this.panelMainTFill.TabIndex = 0;
             // 
             // VictoryForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Red;
-            this.ClientSize = new System.Drawing.Size(475, 441);
+            this.ClientSize = new System.Drawing.Size(356, 353);
             this.ControlBox = false;
             this.Controls.Add(this.panelMain);
             this.Controls.Add(this.panelRightFill);
@@ -361,6 +386,7 @@
             this.Controls.Add(this.panelTitle);
             this.Controls.Add(this.panelTop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "VictoryForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TopMost = true;
@@ -403,10 +429,10 @@
         private System.Windows.Forms.Panel panelTime;
         private System.Windows.Forms.Panel panelDifficulty;
         private System.Windows.Forms.Panel panelLeastTime;
-        private System.Windows.Forms.Label labelWhatLeastTime;
-        private System.Windows.Forms.Label labelLeastTime;
         private System.Windows.Forms.Label labelWhatTime;
         private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Label labelWhatSwitchNumber;
+        private System.Windows.Forms.Label labelSwitchNumber;
         private System.Windows.Forms.Label labelWhatDifficulty;
         private System.Windows.Forms.Label labelDifficulty;
     }

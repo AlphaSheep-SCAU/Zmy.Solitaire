@@ -30,7 +30,8 @@ namespace Zmy.Solitaire
             string re = "";
             if(DragCard != null)
             {
-                re = DragCard.CardSuit.ToString() + (DragCard.CardNumber).ToString() + " in " + DragCardStack.ToString() + "->" + DestinationStack + " ";
+                //re = DragCard.CardSuit.ToString() + (DragCard.CardNumber).ToString() + " in " + DragCardStack.ToString() + "->" + DestinationStack + " ";
+                re = $"{DragCard.CardSuit}{DragCard.CardNumber} in {DragCardStack} → {DestinationStack} ";
             }
             else
             {

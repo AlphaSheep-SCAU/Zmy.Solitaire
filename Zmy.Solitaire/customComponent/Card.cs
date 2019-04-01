@@ -95,12 +95,11 @@ namespace Zmy.Solitaire.customComponent
         public Color CardColor { get; set; }
         public Image CardImage { get; set; }
         public Image CardImageRotate { get; set; }
-        //public int PanelTopHeight { get; set; }
         public Point LastLocation { get; set; }
         public SolitaireStack<Card> CurContainer { get; set; }
         public List<Card> cardList;
-        public Point thread_t { get; set; }
-        public delegate void d(Point newPoint);
+        private System.Drawing.Color borderColor;
+        private int borderSize;
 
         /// <summary>
         /// 默认构造函数
@@ -132,13 +131,14 @@ namespace Zmy.Solitaire.customComponent
             SetSuitImage(CardSuit);
             SetMiddlePicture();
 
-
+            borderColor = System.Drawing.Color.FromArgb(211, 212, 211);
+            borderSize = 1;
             IsShow = false;
             isMoving = false;
             //PanelTopHeight = panelTop.Height;
             LastLocation = Location;
             cardList = new List<Card>();
-
+            
             //this.DoubleBuffered = true;
             //SetStyle(ControlStyles.UserPaint, true);
             //SetStyle(ControlStyles.AllPaintingInWmPaint, true);//禁止擦除背景
@@ -192,7 +192,7 @@ namespace Zmy.Solitaire.customComponent
                     AddMouseUp(control, e);
                 }
                 control.MouseUp += e;
-                Console.WriteLine(control.Name);
+                //Console.WriteLine(control.Name);
             }
         }
 
@@ -288,7 +288,7 @@ namespace Zmy.Solitaire.customComponent
                 }
             }
 
-            if (!SolitrireRule.IsCanMoveMul(cardList))
+            if (!SolitaireRule.IsCanMoveMul(cardList))
             {
                 cardList.Clear();
                 return;
@@ -299,7 +299,6 @@ namespace Zmy.Solitaire.customComponent
                 card.LastLocation = card.Location;
                 if (e.Button == MouseButtons.Left && isShow)
                 {
-                    //this.BringToFront();
                     Point t = new Point(e.X, e.Y);
                     t = PointToScreen(t);
                     card.curX = t.X;
@@ -308,9 +307,8 @@ namespace Zmy.Solitaire.customComponent
                 }
             }
 
-            for(int i = cardList.Count -1;i >= 0; i--)
+            for(int i = cardList.Count - 1;i >= 0; i--)
             {
-                //cardList[i].BackColor = System.Drawing.Color.Aqua;
                 cardList[i].BringToFront();
             }
         }
@@ -350,8 +348,8 @@ namespace Zmy.Solitaire.customComponent
                 {
                     int newX = t.X - card.curX;
                     int newY = t.Y - card.curY;
-                    Point newPoint = new Point(card.Location.X + newX, card.Location.Y + newY);
-                    card.Location = newPoint;
+                    card.Location = new Point(card.Location.X + newX, card.Location.Y + newY);
+                    //card.Location = newPoint;
                     card.curX = t.X;
                     card.curY = t.Y;
                 }
@@ -428,8 +426,8 @@ namespace Zmy.Solitaire.customComponent
             PictureBox pb2 = GeneratePictureBox();
             pb1.Location = new Point(pb1.Location.X, 10);
             pb2.Location = new Point(pb2.Location.X, 105);
-            pb1.Location = SolitrireUtil.HorizontalCenter(pb1, panelMiddle);
-            pb2.Location = SolitrireUtil.HorizontalCenter(pb2, panelMiddle);
+            pb1.Location = SolitaireUtil.HorizontalCenter(pb1, panelMiddle);
+            pb2.Location = SolitaireUtil.HorizontalCenter(pb2, panelMiddle);
             pb1.Image = CardImage;
             pb2.Image = CardImageRotate;
             panelMiddle.Controls.Add(pb1);
@@ -441,7 +439,7 @@ namespace Zmy.Solitaire.customComponent
         {
             SetMiddlePictureTwo();
             PictureBox pb = GeneratePictureBox();
-            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Location = SolitaireUtil.HorizontalVerticalCenter(pb, panelMiddle);
             pb.Image = CardImage;
             panelMiddle.Controls.Add(pb);
             pictureBoxMiddle.SendToBack();
@@ -470,7 +468,7 @@ namespace Zmy.Solitaire.customComponent
         {
             SetMiddlePictureFour();
             PictureBox pb = GeneratePictureBox();
-            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Location = SolitaireUtil.HorizontalVerticalCenter(pb, panelMiddle);
             pb.Image = CardImage;
             panelMiddle.Controls.Add(pb);
             pictureBoxMiddle.SendToBack();
@@ -481,7 +479,7 @@ namespace Zmy.Solitaire.customComponent
             SetMiddlePictureFour();
             PictureBox pb1 = GeneratePictureBox();
             PictureBox pb2 = GeneratePictureBox();
-            pb1.Location = SolitrireUtil.VerticalCenter(pb1, panelMiddle);
+            pb1.Location = SolitaireUtil.VerticalCenter(pb1, panelMiddle);
             pb1.Location = new Point(0, pb1.Location.Y);
             pb2.Location = new Point(pictureBoxMiddle.Width - 24, pb1.Location.Y);
             pb1.Image = pb2.Image = CardImage;
@@ -494,7 +492,7 @@ namespace Zmy.Solitaire.customComponent
         {
             SetMiddlePictureSix();
             PictureBox pb = GeneratePictureBox();
-            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Location = SolitaireUtil.HorizontalVerticalCenter(pb, panelMiddle);
             pb.Location = new Point(pb.Location.X, (pb.Location.Y - 15) / 2 + 15);
             pb.Image = CardImage;
             pb.BringToFront();
@@ -506,7 +504,7 @@ namespace Zmy.Solitaire.customComponent
         {
             SetMiddlePictureSeven();
             PictureBox pb = GeneratePictureBox();
-            pb.Location = SolitrireUtil.HorizontalVerticalCenter(pb, panelMiddle);
+            pb.Location = SolitaireUtil.HorizontalVerticalCenter(pb, panelMiddle);
             pb.Location = new Point(pb.Location.X, (100 + (pb.Location.Y / 2)) / 2 + 15);
             pb.Image = CardImageRotate;
             pb.BringToFront();
@@ -519,7 +517,7 @@ namespace Zmy.Solitaire.customComponent
             if (!isTen)
             {
                 PictureBox pb5 = GeneratePictureBox();
-                pb5.Location = SolitrireUtil.HorizontalVerticalCenter(pb5, panelMiddle);
+                pb5.Location = SolitaireUtil.HorizontalVerticalCenter(pb5, panelMiddle);
                 pb5.Image = CardImage;
                 pb5.BringToFront();
                 panelMiddle.Controls.Add(pb5);
@@ -550,7 +548,7 @@ namespace Zmy.Solitaire.customComponent
         {
             PictureBox pb1 = GeneratePictureBox();
             PictureBox pb2 = GeneratePictureBox();
-            pb1.Location = pb2.Location = SolitrireUtil.HorizontalCenter(pb1, panelMiddle);
+            pb1.Location = pb2.Location = SolitaireUtil.HorizontalCenter(pb1, panelMiddle);
             pb1.Location = new Point(pb1.Location.X, (100 - 28 - 28 - 15) / 2 + 15);
             pb2.Location = new Point(pb1.Location.X, (100 + ((100 - 28) / 2)) / 2 + 15);
             pb1.Image = CardImage;
@@ -598,27 +596,73 @@ namespace Zmy.Solitaire.customComponent
 
         private void panelTop_Paint(object sender, PaintEventArgs e)
         {
-            if (!isShow)
+            //if (!isShow)
+            //    return;
+            if (CardSuit == Suit.Reset)
                 return;
             Panel t = sender as Panel;
             ControlPaint.DrawBorder(e.Graphics,
                 t.ClientRectangle,
-                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
-                System.Drawing.Color.FromArgb(211, 212, 211), 1, ButtonBorderStyle.Solid,
-                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
-                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid);
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.None,
+                borderColor, borderSize, ButtonBorderStyle.Solid);
         }
 
         private void pictureBoxMiddle_Paint(object sender, PaintEventArgs e)
         {
-            if (!isShow)
+            //if (!isShow)
+            //    return;
+            if (CardSuit == Suit.Reset)
                 return;
             ControlPaint.DrawBorder(e.Graphics,
                 pictureBoxMiddle.ClientRectangle,
-                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
-                System.Drawing.Color.FromArgb(211, 212, 211), 1, ButtonBorderStyle.Solid,
-                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid,
-                System.Drawing.Color.Gray, 0, ButtonBorderStyle.Solid);
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.None,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                System.Drawing.Color.Gray, 0, ButtonBorderStyle.None,
+                borderColor, borderSize, ButtonBorderStyle.Solid);
+        }
+
+        private void Card_Paint(object sender, PaintEventArgs e)
+        {
+            if (CardSuit == Suit.Reset)
+                return;
+            ControlPaint.DrawBorder(e.Graphics,
+                ClientRectangle,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                borderColor, borderSize, ButtonBorderStyle.Solid);
+        }
+
+        public void ChangeBorderColor()
+        {
+            if(borderSize == 1)
+            {
+                //borderColor = System.Drawing.Color.FromArgb(248, 252, 185);
+                borderColor = System.Drawing.Color.OrangeRed;
+                borderSize = 3;
+            }
+            else
+            {
+                borderColor = System.Drawing.Color.FromArgb(211, 212, 211);
+                borderSize = 1;
+            }
+            Invalidate();
+            Update();
+        }
+
+        private void panelButtom_Paint(object sender, PaintEventArgs e)
+        {
+            if (CardSuit == Suit.Reset)
+                return;
+            Panel t = sender as Panel;
+            ControlPaint.DrawBorder(e.Graphics,
+                t.ClientRectangle,
+                borderColor, 0, ButtonBorderStyle.None,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                borderColor, borderSize, ButtonBorderStyle.Solid,
+                borderColor, borderSize, ButtonBorderStyle.Solid);
         }
     }
 }

@@ -31,6 +31,7 @@ namespace Zmy.Solitaire
         private PictureBox[] arrayPictureBox;
         private SwitchNumber switchNumber;
         private Difficulty difficulty;
+        private Point curLocation;
 
         public FirstForm()
         {
@@ -55,8 +56,8 @@ namespace Zmy.Solitaire
             panelMedium.BackColor = Color.FromArgb(1, 21, 37);
             panelDifficult.BackColor = Color.FromArgb(1, 21, 37);
             panelRandom.BackColor = Color.FromArgb(1, 21, 37);
-            buttonStartGame.Location = SolitrireUtil.HorizontalVerticalCenter(buttonStartGame, panelMainButtom);
-            labelChoose.Location = SolitrireUtil.HorizontalVerticalCenter(labelChoose, panelLabelChoose);
+            buttonStartGame.Location = SolitaireUtil.HorizontalVerticalCenter(buttonStartGame, panelMainButtom);
+            labelChoose.Location = SolitaireUtil.HorizontalVerticalCenter(labelChoose, panelLabelChoose);
         }
 
         private void LoadControl2Array()
@@ -261,6 +262,19 @@ namespace Zmy.Solitaire
         private void panelTitle_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void panelTitle_MouseDown(object sender, MouseEventArgs e)
+        {
+            curLocation = new Point(e.X, e.Y);
+        }
+
+        private void panelTitle_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                Location = new Point(Location.X + e.X - curLocation.X, Location.Y + e.Y - curLocation.Y);
+            }
         }
     }
 }

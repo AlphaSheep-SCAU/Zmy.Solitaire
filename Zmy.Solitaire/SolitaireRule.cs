@@ -8,7 +8,7 @@ using Zmy.Solitaire.customComponent;
 
 namespace Zmy.Solitaire
 {
-    class SolitrireRule
+    class SolitaireRule
     {
         /// <summary>
         /// 生成52张卡牌

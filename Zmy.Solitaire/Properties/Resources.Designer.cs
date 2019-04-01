@@ -65,7 +65,7 @@ namespace Zmy.Solitaire.Properties {
         /// </summary>
         internal static System.Drawing.Bitmap _3_40_71background {
             get {
-                object obj = ResourceManager.GetObject("3-40-71background", resourceCulture);
+                object obj = ResourceManager.GetObject("_3-40-71background", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
