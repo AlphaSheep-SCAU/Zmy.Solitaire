@@ -67,7 +67,7 @@ namespace Zmy.Solitaire
             arrayPanelDifficulty[2] = panelDifficult;
             arrayPanelDifficulty[3] = panelRandom;
 
-            arrayPictureBox[0] = pictureBox1;
+            arrayPictureBox[0] = pictureBox;
             arrayPictureBox[1] = pictureBox2;
             arrayPictureBox[2] = pictureBox3;
             arrayPictureBox[3] = pictureBox4;
@@ -188,7 +188,7 @@ namespace Zmy.Solitaire
                 panelSwitchThree.Tag = "0";
                 p.BackColor = Color.FromArgb(31, 180, 231);
                 panelSwitchThree.BackColor = Color.FromArgb(1, 21, 37);
-                pictureBox1.BackgroundImage = Properties.Resources.choose;
+                pictureBox.BackgroundImage = Properties.Resources.choose;
                 pictureBox2.BackgroundImage = Properties.Resources.unchoose;
                 switchNumber = SwitchNumber.One;
             }
@@ -198,7 +198,7 @@ namespace Zmy.Solitaire
                 panelSwitchOne.Tag = "0";
                 p.BackColor = Color.FromArgb(31, 180, 231);
                 panelSwitchOne.BackColor = Color.FromArgb(1, 21, 37);
-                pictureBox1.BackgroundImage = Properties.Resources.unchoose;
+                pictureBox.BackgroundImage = Properties.Resources.unchoose;
                 pictureBox2.BackgroundImage = Properties.Resources.choose;
                 switchNumber = SwitchNumber.Three;
             }
@@ -249,21 +249,6 @@ namespace Zmy.Solitaire
             }
         }
 
-        private void panelLFill_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelRFill_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panelTitle_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
         private void panelTitle_MouseDown(object sender, MouseEventArgs e)
         {
             curLocation = new Point(e.X, e.Y);
@@ -274,6 +259,100 @@ namespace Zmy.Solitaire
             if(e.Button == MouseButtons.Left)
             {
                 Location = new Point(Location.X + e.X - curLocation.X, Location.Y + e.Y - curLocation.Y);
+            }
+        }
+
+        private void label_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = null;
+            if (sender is Label)
+                p = (sender as Label).Parent as Panel;
+            else
+                p = (sender as PictureBox).Parent as Panel;
+            if ((string)p.Tag == "1")
+                return;
+            if (p.Name == "panelSwitchOne")
+            {
+                p.Tag = "1";
+                panelSwitchThree.Tag = "0";
+                p.BackColor = Color.FromArgb(31, 180, 231);
+                panelSwitchThree.BackColor = Color.FromArgb(1, 21, 37);
+                pictureBox.BackgroundImage = Properties.Resources.choose;
+                pictureBox2.BackgroundImage = Properties.Resources.unchoose;
+                switchNumber = SwitchNumber.One;
+            }
+            else
+            {
+                p.Tag = "1";
+                panelSwitchOne.Tag = "0";
+                p.BackColor = Color.FromArgb(31, 180, 231);
+                panelSwitchOne.BackColor = Color.FromArgb(1, 21, 37);
+                pictureBox.BackgroundImage = Properties.Resources.unchoose;
+                pictureBox2.BackgroundImage = Properties.Resources.choose;
+                switchNumber = SwitchNumber.Three;
+            }
+        }
+
+        private void label_MouseEnter(object sender, EventArgs e)
+        {
+            Panel p = null;
+            if (sender is Label)
+                 p = (sender as Label).Parent as Panel;
+            else
+                 p = (sender as PictureBox).Parent as Panel;
+            if ((string)p.Tag == "1")
+                return;
+            p.BackColor = Color.FromArgb(15, 93, 126);
+        }
+
+        private void label_MouseLeave(object sender, EventArgs e)
+        {
+            Panel p = null;
+            if (sender is Label)
+                p = (sender as Label).Parent as Panel;
+            else
+                p = (sender as PictureBox).Parent as Panel;
+            if ((string)p.Tag == "1")
+                return;
+            p.BackColor = Color.FromArgb(1, 21, 37);
+        }
+
+        private void label3_MouseClick(object sender, MouseEventArgs e)
+        {
+            Panel p = null;
+            if (sender is Label)
+                p = (sender as Label).Parent as Panel;
+            else
+                p = (sender as PictureBox).Parent as Panel;
+            if ((string)p.Tag == "1")
+                return;
+            p.Tag = "1";
+            p.BackColor = Color.FromArgb(31, 180, 231);
+            for (int i = 0; i < p.Controls.Count; i++)
+            {
+                if (p.Controls[i] is PictureBox)
+                {
+                    p.Controls[i].BackgroundImage = Properties.Resources.choose;
+                    break;
+                }
+            }
+            for (int i = 0; i < 4; i++)
+            {
+                if (arrayPanelDifficulty[i].Name == p.Name)
+                {
+                    difficulty = (Difficulty)i;
+                    continue;
+                }
+                arrayPanelDifficulty[i].Tag = "0";
+                arrayPanelDifficulty[i].BackColor = Color.FromArgb(1, 21, 37);
+                for (int j = 0; j < arrayPanelDifficulty[i].Controls.Count; j++)
+                {
+                    if (arrayPanelDifficulty[i].Controls[j] is PictureBox)
+                    {
+                        arrayPanelDifficulty[i].Controls[j].BackgroundImage = Properties.Resources.unchoose;
+                        break;
+                    }
+                }
             }
         }
     }

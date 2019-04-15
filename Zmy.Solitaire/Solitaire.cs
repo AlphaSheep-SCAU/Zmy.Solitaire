@@ -67,6 +67,7 @@ namespace Zmy.Solitaire
         private SwitchNumber switchNumber;
         private string strSrc;
         private string name;
+        private bool maybeNoSolution;
         private Button btnUndo;
         private Button btnSaveGame;
         private Button btnRemake;
@@ -145,14 +146,14 @@ namespace Zmy.Solitaire
         }
 
         /// <summary>
-        /// 解决卡顿
+        /// 解决闪烁
         /// </summary>
         protected override CreateParams CreateParams
         {
             get
             {
                 CreateParams cp = base.CreateParams;
-                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED
+                cp.ExStyle |= 0x02000000;  //用双缓冲绘制窗口的所有子控件
                 return cp;
             }
         }
@@ -162,7 +163,7 @@ namespace Zmy.Solitaire
         /// </summary>
         protected override void WndProc(ref Message m)
         {
-            if (m.Msg == 0x0014)//禁止清除背景消息
+            if (m.Msg == 0x0014)//禁止擦除背景消息
                 return;
             base.WndProc(ref m);
         }
@@ -207,6 +208,7 @@ namespace Zmy.Solitaire
             curTips = null;
             hasChangeColor = false;
             hasChangeRandomColor = false;
+            maybeNoSolution = true;
 
             timer_minute = 0;
             timer_second = 0;
@@ -486,6 +488,11 @@ namespace Zmy.Solitaire
             {
                 ChangeBorderColor();
                 hasChangeColor = false;
+            }
+            if (hasChangeRandomColor)
+            {
+                Controls.Remove(picureBoxTips);
+                hasChangeRandomColor = false;
             }
             Card c = sender as Card;
             //如果是在随机牌堆上，则展示牌
@@ -838,6 +845,11 @@ namespace Zmy.Solitaire
         {
             if (e.Button == MouseButtons.Right)
                 return;
+            if (hasChangeRandomColor)
+            {
+                Controls.Remove(picureBoxTips);
+                hasChangeRandomColor = false;
+            }
             if (!isTimerOn)
             {
                 //timer.Enabled = true;
@@ -849,6 +861,8 @@ namespace Zmy.Solitaire
             
             if (e.Button == MouseButtons.Left)
             {
+                maybeNoSolution = true;
+
                 List<Card> li = stackRandomShowCard.ToList();
 
                 while (stackRandomShowCard.Count > 0)
@@ -1144,8 +1158,6 @@ namespace Zmy.Solitaire
                 TimerSecond = TimerSecond % 60;
                 TimerMinute++;
             }
-            //labelTime.Text = timer_minute.ToString() + ":";
-            //labelTime.Text += timer_sencond > 9 ? timer_sencond.ToString() : "0" + timer_sencond.ToString();
         }
 
         /// <summary>
@@ -1197,25 +1209,6 @@ namespace Zmy.Solitaire
         {
             tipIndex = 0;
             listTips.Clear();
-            if (stackRandomShowCard.Count > 0)
-            {
-                //遍历随机牌看是否有可以上去完成牌堆
-                Card c = stackRandomShowCard.Peek();
-                if (SolitaireRule.IsCanMove2Finished(c, stackFinishedCard))
-                {
-                    int index = c.CardSuit == Suit.Spade ? 0 : c.CardSuit == Suit.Heart ? 1 : c.CardSuit == Suit.Club ? 2 : 3;
-                    SolitaireTips st = new SolitaireTips(c, stackFinishedCard[index]);
-                    listTips.Add(st);
-                }
-                for(int i = 0; i < 7; i++)
-                {
-                    if (SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[i]))
-                    {
-                        SolitaireTips st = new SolitaireTips(c, stackMiddleCard[i]);
-                        listTips.Add(st);
-                    }
-                }
-            }
             for(int i = 0; i < 7; i++)
             {
                 if(stackMiddleCard[i].Count > 0)
@@ -1229,7 +1222,10 @@ namespace Zmy.Solitaire
                             break;
                         }
                         cardList.Add(cardArray[j]);
-                        if(j == 0)
+                        Card cn = null;
+                        if (cardArray.Length > j + 1)
+                            cn = cardArray[j + 1];
+                        if (j == 0)
                         {
                             //单张能否去完成牌堆
                             Card c = stackMiddleCard[i].Peek();
@@ -1240,9 +1236,13 @@ namespace Zmy.Solitaire
                                 listTips.Add(st);
                             }
                             //单张能否去其他中间牌堆
-                            for(int k = 0; k < 7; k++)
+                            for (int k = 0; k < 7; k++)
                             {
-                                if (SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[k]))
+                                if ((SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[k]) && 
+                                    cn != null &&
+                                    (!cn.IsShow || SolitaireRule.IsCanMove2Finished(cn, stackFinishedCard))) ||
+                                    (SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[k]) && 
+                                    cn == null && stackMiddleCard[k].Count != 0)) 
                                 {
                                     SolitaireTips st = new SolitaireTips(c, stackMiddleCard[k]);
                                     listTips.Add(st);
@@ -1257,7 +1257,11 @@ namespace Zmy.Solitaire
                             //多张能否去其他中间牌堆
                             for(int k = 0; k < 7; k++)
                             {
-                                if (SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[k]))
+                                if ((SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[k]) &&
+                                    cn != null &&
+                                    (!cn.IsShow || SolitaireRule.IsCanMove2Finished(cn, stackFinishedCard))) ||
+                                    (SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[k]) &&
+                                    cn == null && stackMiddleCard[k].Count != 0))
                                 {
                                     SolitaireTips st = new SolitaireTips(cardList, stackMiddleCard[k]);
                                     listTips.Add(st);
@@ -1265,6 +1269,50 @@ namespace Zmy.Solitaire
                             }
                         }
                     }
+                }
+            }
+            if (stackRandomShowCard.Count > 0)
+            {
+                //遍历随机牌看是否有可以上去完成牌堆
+                Card c = stackRandomShowCard.Peek();
+                if (SolitaireRule.IsCanMove2Finished(c, stackFinishedCard))
+                {
+                    int index = c.CardSuit == Suit.Spade ? 0 : c.CardSuit == Suit.Heart ? 1 : c.CardSuit == Suit.Club ? 2 : 3;
+                    SolitaireTips st = new SolitaireTips(c, stackFinishedCard[index]);
+                    listTips.Add(st);
+                }
+                for (int i = 0; i < 7; i++)
+                {
+                    if (SolitaireRule.IsCanMove2Middle(c, stackMiddleCard[i]))
+                    {
+                        SolitaireTips st = new SolitaireTips(c, stackMiddleCard[i]);
+                        listTips.Add(st);
+                    }
+                }
+            }
+            if (listTips.Count != 0)
+                maybeNoSolution = false;
+            if (stackRandomCard.Count == 0 && maybeNoSolution)
+            {
+                LoseForm lf = new LoseForm(difficult, switchNumber);
+                DialogResult dr = lf.ShowDialog();
+                if (dr == DialogResult.OK)//重新开始
+                {
+                    ClearGame();
+                    name = DateTime.Now.ToString().Replace("/", "").Replace(" ", "").Replace(":", "");
+                    SolitaireUtil.SaveGameXML(listCard, name);
+                    string str = @"../../save/" + name + ".xml";
+                    listCard = SolitaireUtil.ReadXml(str, Mouse_Up_Card);
+                    InitCardLocation();
+                    File.Delete(str);
+                }
+                else if (dr == DialogResult.No) //撤销
+                {
+                    btnUndo.PerformClick();
+                }
+                else
+                {
+                    Close();
                 }
             }
         }
@@ -1284,36 +1332,17 @@ namespace Zmy.Solitaire
             }
             if (hasChangeRandomColor)
             {
-                if(stackRandomCard.Count > 0)
-                    stackRandomCard.Peek().ChangeBorderColor();
-                else
-                    Controls.Remove(picureBoxTips);
+                Controls.Remove(picureBoxTips);
                 hasChangeRandomColor = false;
             }
-            if (tipIndex == listTips.Count)
+            if (tipIndex == listTips.Count || listTips.Count == 0)
             {
                 tipIndex = 0;// tipIndex % listTips.Count;
-                if(stackRandomCard.Count > 0)
-                {
-                    stackRandomCard.Peek().ChangeBorderColor();
-                }
-                else
-                {
-                    picureBoxTips.Location = LocatePoint(panelRandomCard);
-                    picureBoxTips.Location = new Point(picureBoxTips.Location.X - 5, picureBoxTips.Location.Y - 5);
-                    Controls.Add(picureBoxTips);
-                    picureBoxTips.SendToBack();
-                }
+                picureBoxTips.Location = LocatePoint(panelRandomCard);
+                picureBoxTips.Location = new Point(picureBoxTips.Location.X - 5, picureBoxTips.Location.Y - 5);
+                Controls.Add(picureBoxTips);
+                picureBoxTips.SendToBack();
                 hasChangeRandomColor = true;
-                return;
-            }
-            if (listTips.Count == 0)
-            {
-                if (!hasChangeRandomColor)
-                {
-                    stackRandomCard.Peek().ChangeBorderColor();
-                    hasChangeRandomColor = true;
-                }
                 return;
             }
 

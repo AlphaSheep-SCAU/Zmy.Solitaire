@@ -15,8 +15,10 @@ namespace Zmy.Solitaire
 
         public SolitaireTips(List<Card> oca,SolitaireStack<Card> os)
         {
-            //ObjectCardArray = (Card[])oca.Clone();
-            ObjectCardArray = oca;
+            //ObjectCardArray = oca;
+            ObjectCardArray = new List<Card>();
+            for(int i = 0; i < oca.Count; i++)
+                ObjectCardArray.Add(oca[i]);
             ObjectStack = os;
             SingleCard = null;
         }

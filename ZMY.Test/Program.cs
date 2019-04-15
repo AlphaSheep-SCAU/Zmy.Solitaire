@@ -118,6 +118,15 @@ namespace ZMY.Test
             //xtw.WriteEndElement();
             //xtw.Flush();
             //xtw.Close();
+
+            Rectangle r1 = new Rectangle();
+            Rectangle r2 = new Rectangle();
+            r1.Location = new Point(0, 0);
+            r1.Height = r1.Width = 100;
+            r2.Location = new Point(101, 101);
+            r2.Height = r2.Width = 2;
+            Console.WriteLine(r1.IntersectsWith(r2));
+
             Console.Read();
         }
     }

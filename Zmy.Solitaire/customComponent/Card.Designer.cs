@@ -30,22 +30,22 @@
         {
             this.labelNumberLeft = new System.Windows.Forms.Label();
             this.panelButtom = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxRight = new System.Windows.Forms.PictureBox();
+            this.rotateLabel = new Zmy.Solitaire.RotateLabel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxLeft = new System.Windows.Forms.PictureBox();
             this.pictureBoxMiddle = new System.Windows.Forms.PictureBox();
             this.panelMiddle = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.rotateLabel = new Zmy.Solitaire.RotateLabel();
             this.panelButtom.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRight)).BeginInit();
             this.panelTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMiddle)).BeginInit();
             this.panelMiddle.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // labelNumberLeft
@@ -75,6 +75,16 @@
             this.panelButtom.TabIndex = 5;
             this.panelButtom.Paint += new System.Windows.Forms.PaintEventHandler(this.panelButtom_Paint);
             // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(15, 109);
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
+            // 
             // pictureBoxRight
             // 
             this.pictureBoxRight.BackColor = System.Drawing.Color.Transparent;
@@ -86,6 +96,17 @@
             this.pictureBoxRight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxRight.TabIndex = 5;
             this.pictureBoxRight.TabStop = false;
+            // 
+            // rotateLabel
+            // 
+            this.rotateLabel.BackColor = System.Drawing.Color.Transparent;
+            this.rotateLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.rotateLabel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.rotateLabel.Location = new System.Drawing.Point(0, 125);
+            this.rotateLabel.Name = "rotateLabel";
+            this.rotateLabel.RText = " A";
+            this.rotateLabel.Size = new System.Drawing.Size(15, 15);
+            this.rotateLabel.TabIndex = 4;
             // 
             // panelTop
             // 
@@ -99,6 +120,16 @@
             this.panelTop.Size = new System.Drawing.Size(15, 140);
             this.panelTop.TabIndex = 4;
             this.panelTop.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTop_Paint);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(15, 109);
+            this.pictureBox1.TabIndex = 4;
+            this.pictureBox1.TabStop = false;
             // 
             // pictureBoxLeft
             // 
@@ -135,37 +166,6 @@
             this.panelMiddle.Size = new System.Drawing.Size(68, 140);
             this.panelMiddle.TabIndex = 6;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 31);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(15, 109);
-            this.pictureBox1.TabIndex = 4;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(15, 109);
-            this.pictureBox2.TabIndex = 6;
-            this.pictureBox2.TabStop = false;
-            // 
-            // rotateLabel
-            // 
-            this.rotateLabel.BackColor = System.Drawing.Color.Transparent;
-            this.rotateLabel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.rotateLabel.Font = new System.Drawing.Font("微软雅黑", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.rotateLabel.Location = new System.Drawing.Point(0, 125);
-            this.rotateLabel.Name = "rotateLabel";
-            this.rotateLabel.RText = " A";
-            this.rotateLabel.Size = new System.Drawing.Size(15, 15);
-            this.rotateLabel.TabIndex = 4;
-            // 
             // Card
             // 
             this.AllowDrop = true;
@@ -185,14 +185,14 @@
             this.Load += new System.EventHandler(this.Card_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Card_Paint);
             this.panelButtom.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxRight)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxMiddle)).EndInit();
             this.panelMiddle.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

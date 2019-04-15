@@ -202,10 +202,10 @@ namespace Zmy.Solitaire
             int i = 0;
             while (listCard[i] != null)
                 i++;
-            XmlNode list = root.SelectSingleNode(xmlTab);
-            XmlNodeList ele = list.ChildNodes;
+            XmlNode list = root.SelectSingleNode(xmlTab);//选取xmlTab的标签
+            XmlNodeList ele = list.ChildNodes;//获得这个标签的子标签
             foreach (XmlElement e in ele)
-                listCard[i++] = GetWhichCard(e.InnerText);
+                listCard[i++] = GetWhichCard(e.InnerText);//GetWhichCard是根据卡牌代码生成对应卡牌
             return listCard;
         }
 
@@ -228,28 +228,23 @@ namespace Zmy.Solitaire
         /// <param name="listCard"></param>
         public static void SaveGameXML(Card[] listCard, string name)
         {
-            XmlTextWriter xtw = new XmlTextWriter(@"../../save/" + name + ".xml", null);
-            xtw.Formatting = Formatting.Indented;
-            xtw.WriteStartDocument();
-            xtw.WriteStartElement("solitaire");
-            xtw.WriteStartElement("random");
-            for(int i = 28; i < 52; i++)
-            {
-                xtw.WriteElementString("card", GetWhichCode(listCard[i]));
-            }
-            xtw.WriteEndElement();
-            
+            XmlTextWriter xtw = new XmlTextWriter(@"../../save/" + name + ".xml", null);//保存路径
+            xtw.Formatting = Formatting.Indented;//设置写入时缩进
+            xtw.WriteStartDocument();//写入xml文件开头
+            xtw.WriteStartElement("solitaire");//开始写入solitaire标签
+            xtw.WriteStartElement("random");//开始写入random标签
+            for (int i = 28; i < 52; i++)
+                xtw.WriteElementString("card", GetWhichCode(listCard[i]));//循环写入随机牌堆卡牌
+            xtw.WriteEndElement();//random标签结束
+            //↓循环写入中间牌堆的卡牌
             for(int i = 1; i < 8; i++)
             {
                 int sum = ((i - 1) * i) / 2;
                 xtw.WriteStartElement("middle" + i.ToString());
                 for (int j = sum ; j < sum + i ; j++) 
-                {
                     xtw.WriteElementString("card", GetWhichCode(listCard[j]));
-                }
                 xtw.WriteEndElement();
             }
-
             xtw.WriteEndElement();
             xtw.Flush();
             xtw.Close();

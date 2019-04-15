@@ -37,13 +37,17 @@ namespace Zmy.Solitaire
             rText = "A";
         }
 
+        /// <summary>
+        /// 重写OnPaint
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            Graphics g = CreateGraphics();
-            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            g.RotateTransform(180);
-            g.TranslateTransform(-Width, -Height);
+            Graphics g = CreateGraphics();//创建Graphics对象
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;//设置指定抗锯齿的呈现
+            g.RotateTransform(180);//旋转180°
+            g.TranslateTransform(-Width, -Height);//平移图像
             g.DrawString(RText, base.Font, new SolidBrush(base.ForeColor), 0, 0);
         }
 

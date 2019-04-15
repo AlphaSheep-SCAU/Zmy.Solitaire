@@ -18,7 +18,8 @@ namespace Zmy.Solitaire
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new FirstForm());
             //Application.Run(new Solitaire());
-            //Application.Run(new VictoryForm());
+            //Application.Run(new VictoryForm(Difficulty.Difficult,SwitchNumber.One,"10:10"));
+            //Application.Run(new LoseForm(Difficulty.Difficult,SwitchNumber.One));
         }
     }
 }

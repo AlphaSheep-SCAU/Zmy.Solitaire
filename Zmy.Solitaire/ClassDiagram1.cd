@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Zmy.Solitaire.SolitaireTips">
+    <Position X="6.75" Y="3" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAEAAAAAAAAAAIAAIAAAAAAA=</HashCode>
+      <FileName>SolitaireTips.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zmy.Solitaire.customComponent.Card" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>IAFuJACiBGAEECBBARLCACACwIhEoACCAsKBEFBIAJA=</HashCode>
+      <FileName>customComponent\Card.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zmy.Solitaire.PlayerStep">
+    <Position X="10.5" Y="1.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAQQAAAQAAAAQAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PlayerStep.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zmy.Solitaire.Solitaire">
+    <Position X="4.5" Y="1" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>mvcMgVgiNKEQwCjQLACCQJESCAAkQADIpQQAROgDGlQ=</HashCode>
+      <FileName>Solitaire.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Zmy.Solitaire.SolitaireRule">
+    <Position X="3" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAAAAAAAAAAQAAAAQAAAEAAAAAgAABAAAgA=</HashCode>
+      <FileName>SolitaireRule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Zmy.Solitaire.customComponent.Suit" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAABAAAAAAAAAAAAAAAAgAAAAAAAACAACg=</HashCode>
+      <FileName>customComponent\Card.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Zmy.Solitaire.customComponent.Number" Collapsed="true">
+    <Position X="2.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAghAAAEAAEAIAAAAAFBAAAAAgAAAgAAEk=</HashCode>
+      <FileName>customComponent\Card.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="Zmy.Solitaire.customComponent.Color" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>customComponent\Card.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Microsoft YaHei UI" Size="9" />
+</ClassDiagram>

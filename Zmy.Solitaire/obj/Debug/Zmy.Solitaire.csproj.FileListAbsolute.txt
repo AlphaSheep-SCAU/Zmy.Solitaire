@@ -25,3 +25,4 @@ I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.F
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.Solitaire.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.RotateLabel.resources
 I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.csprojResolveAssemblyReference.cache
+I:\复习\7大四上学期\Zmy.Solitaire\Zmy.Solitaire\obj\Debug\Zmy.Solitaire.LoseForm.resources

@@ -77,16 +77,12 @@ namespace Zmy.Solitaire.customComponent
                     panelTop.Visible = true;
                     panelMiddle.Visible = true;
                     panelButtom.Visible = true;
-                    //if (CardSuit != Suit.Reset && CardSuit != Suit.Finish)
-                    //    BackgroundImage = Properties.Resources.blank_radius;
                 }
                 else
                 {
                     panelTop.Visible = false;
                     panelMiddle.Visible = false;
                     panelButtom.Visible = false;
-                    //if(CardSuit != Suit.Reset && CardSuit != Suit.Finish)
-                    //    BackgroundImage = Properties.Resources.cardbackground_radius;
                 }
             }
         }
@@ -145,7 +141,11 @@ namespace Zmy.Solitaire.customComponent
             //SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
         }
 
-
+        /// <summary>
+        /// 加载时
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Card_Load(object sender, EventArgs e)
         {
             labelNumberLeft.Text = ConvertNumber2String(CardNumber);
@@ -154,26 +154,6 @@ namespace Zmy.Solitaire.customComponent
             AddEvent(this);
 
         }
-
-        //protected override void WndProc(ref Message m)
-        //{
-        //    if (m.Msg == 0x0014)//禁止清除背景消息
-        //        return;
-        //    base.WndProc(ref m);
-        //}
-
-        /// <summary>
-        /// 解决卡顿
-        /// </summary>
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        var parms = base.CreateParams;
-        //        parms.Style &= ~0x02000000; // Turn off WS_CLIPCHILDREN 
-        //        return parms;
-        //    }
-        //}
 
         /// <summary>
         /// 用于外部类往卡牌添加MouseUp事件
@@ -322,14 +302,13 @@ namespace Zmy.Solitaire.customComponent
         {
             //取消移动
             isMoving = false;
-            //cardList.Clear();
             //控制纸牌的显示
             if (e.Button == MouseButtons.Left
                 && !IsShow && CurContainer is Stack<Card>
+                && (CurContainer as Stack<Card>).Count > 0
                 && (CurContainer as Stack<Card>).Peek() == this)
             {
                 IsShow = true;
-                //CurContainer.Pop();
             }
         }
 
